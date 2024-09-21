@@ -1,18 +1,19 @@
-# Nome do projeto
+# CashByMe
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+Este projeto se baseia em um sistema responsável por facilitar e agilizar o gerenciamento monetário individual do usuário, provendo serviços como um estabelecimento de metas de economia, geração de gráficos para melhor visualização das proporções e origem dos gastos, e automatização da inserção de dados.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+- Henrique Augusto Freire de Oliveira
+- Letícia Lelis Alves
+- Yuri Gabriel Rocha Rabelo
+- Paulo Henrique Araújo Silva
+- Mayssa Luiza Fernandes do Nascimento
+- Guilherme Neves Rodrigues
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+- Pedro Felipe Alves de Oliveira
 
 ## Instruções de utilização
 
