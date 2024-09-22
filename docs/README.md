@@ -70,18 +70,18 @@ Requisitos não funcionais
 ## Fluxo do usuário
 
 <div align="center">
-  <img style="max-width:1000px" src="https://ibb.co/CMBjgWd">
+  <img style="max-width:1000px" src="https://i.ibb.co/7Rv3Pbc/Fluxo.png">
 </div>
 
 ## Wireframes
 
 <div align="center">
-  <img style="max-width:1000px" src="https://ibb.co/B2FHhCZ">
-  <img style="max-width:1000px" src="https://ibb.co/yk8LhXc">
-  <img style="max-width:1000px" src="https://ibb.co/wJ2KytH">
-  <img style="max-width:1000px" src="https://ibb.co/jg0mwqd">
-  <img style="max-width:1000px" src="https://ibb.co/wBgLr75">
-  <img style="max-width:1000px" src="https://ibb.co/t3wrNZY">
+  <img style="max-width:1000px" src="https://i.ibb.co/HT3LcHz/Wire1.png">
+  <img style="max-width:1000px" src="https://i.ibb.co/WzcSD64/Wire2.png">
+  <img style="max-width:1000px" src="https://i.ibb.co/tZ1bBRf/Wire3.png">
+  <img style="max-width:1000px" src="https://i.ibb.co/t8jg2nS/Wire4.png">
+  <img style="max-width:1000px" src="https://i.ibb.co/zQx5HFq/Wire5.png">
+  <img style="max-width:1000px" src="https://i.ibb.co/FnkTfs8/Wire6.png">
 </div>
 
 ## Protótipo
