@@ -2,130 +2,116 @@
 
 Esta pasta armazena a documentação do projeto para a disciplina de **Trabalho Interdisciplinar 1** dos cursos de Tecnologia da Informação da **[PUC Minas](https://pucminas.br)**. Essa documentação é estruturada na forma de um site que fica disponível por meio do GitHub Pages e pode ser incluído, também, no site da solução hospedada. Um [exemplo publicado do TIDocs](https://webtech-puc-minas.github.io/ti1-template/) está disponível por meio do repositório do **[WebTech PUC Minas](https://github.com/webtech-pucminas)**.
 
-A documentação do projeto inclui as seguintes seções:
+# Contexto
 
-1. Introdução
-2. Contexto
-3. Concepção
-4. Metodologia
-5. Solução
-6. FAQ (Questões frequentes)
-7. Referências Bibliográficas
+## Introdução
 
-O template para o site é estruturado e permite que a equipe evolua a documentação do projeto à medida que avance no desenvolvimento.
-
-# Orientações gerais
-
-Esta seção traz explicações breves sobre o conjunto de artefatos que precisam ser incluídos na documentação do projeto com uma conjunto de links importantes para que se entenda como criar cada coisa. 
+Nos últimos anos, tem se tornado cada vez mais difícil manter um gerenciamento financeiro robusto e à prova de imprevistos. A popularização de comodidades de alta tecnologia, o medo da segregação social por não as possuírem e a existência de esquemas de “dinheiro fácil” tem se impregnado cada vez mais na sociedade brasileira. Fatores como estes estão causando muitos a se comportarem de maneira financeiramente irresponsável, com uma falta de bom julgamento a longo e até curto prazo, preferindo gastar em experiências prazerosas passageiras ao invés de economizar\[1\].
+Isso se torna preocupante, dado que muitos jovens admitem preferir fazer apostas online do que usar o dinheiro que possuem em um curso superior, sendo o caso para 35% dos entrevistados no Brasil\[2\]. Esse crescimento da participação dos brasileiros em jogos de azar reflete uma possibilidade de um destino improfícuo para a população geral.
 
 ## Problema
 
-Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
+Com o crescimento do número de jovens e adultos tendo dificuldades em manter uma vida financeira estável, surge o problema da potencial decadência da classe média, que já se encontrava numa situação precária após a pandemia. Ela teve uma queda de 4% de 2020 para 2021 (que se moveram para a classe baixa, cerca de 4,9 milhões de famílias), resultando na mesma quantidade da população na classe média e baixa: ambos 47%\[3\]. É alarmante essa situação para um país que deveria estar em desenvolvimento, mas que tem sua classe baixa crescendo em vez de diminuindo.
 
-Nesse momento, o grupo pode optar por fazer uso de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+## Objetivo
 
-**Links Úteis**:
-
-- [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-- [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-- [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
-## Objetivos
-
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
-
-**Links Úteis**:
-
-- [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+O objetivo deste projeto é facilitar o manejo e gerenciamento dos gastos pessoais do usuário, através do fornecimento de ferramentas para auxiliar no planejamento econômico e, por fim, melhorar a qualidade de vida. Com a adoção em massa do sistema, seria possível até aprimorar a condição financeira geral da população brasileira.
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+Através de várias pesquisas, é evidente que está em falta essa consciência da necessidade do planejamento financeiro na sociedade, dado provavelmente a essa dificuldade de uma visualização palpável dos gastos. É imperativo a difusão desse entendimento da importância do controle pessoal de gastos, e o sistema seria uma boa ferramenta para facilitar este fim, provendo variados instrumentos úteis.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+## Público Alvo
 
-**Links Úteis**:
+Adultos entre 20 e 40 anos, de qualquer classe, economicamente ativos, que residem principalmente em regiões urbanas e utilizam ao menos o celular.
 
-- [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+# Especificação do Projeto
 
-## Público-Alvo
-
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, ou diagramas de personas, mapa de stakeholders, ou como o grupo achar mais conveniente.
-
-**Links Úteis**:
-
-- [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-- [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+A falta de recursos financeiros e o mau planejamento dos gastos são desafios comuns enfrentados por indivíduos e organizações. Em um mundo onde as despesas muitas vezes superam as receitas, torna-se essencial desenvolver um controle financeiro eficaz. Este projeto visa abordar esses problemas de forma prática, oferecendo ferramentas e estratégias que ajudem na gestão consciente do dinheiro. Ao promover um planejamento adequado, buscamos não apenas evitar crises financeiras, mas também garantir que os recursos disponíveis sejam utilizados de maneira eficiente e sustentável. Através de uma análise detalhada dos hábitos de consumo e da implementação de um sistema de controle, esperamos capacitar os participantes a tomar decisões mais informadas e, assim, alcançar uma maior estabilidade financeira.
 
 ## Personas
 
-Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que você deve ser enumerar e descrever precisamente e de forma personalizada todos os principais envolvidos com a solução almeja.
+| **Nome** | **Quero**                                   | **Porque/para**                                                       |
+| -------- | ------------------------------------------- | --------------------------------------------------------------------- |
+| Michele  | Saber o histórico dos meus gastos           | Quero ter um controle mais rígido da minha vida financeira            |
+| Roberto  | Saber quanto devo economizar até fim do ano | Tirar meu nome do SERASA                                              |
+| Beatriz  | Saber como fazer um planejamento financeiro | Ter independência financeira o mais cedo possível                     |
+| André    | Aprender a investir de forma inteligente    | Poder futuramente me sustentar apenas com o retorno dos investimentos |
 
-**Links Úteis**:
+## Requisitos de projeto
 
-- [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-- [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-- [Rock Content](https://rockcontent.com/blog/personas/)
-- [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+Requisitos funcionais
 
-## Histórias de Usuários
+- O sistema deve apresentar um gráfico que mostre os gastos do mês;
+- O sistema deve permitir ao usuário estabelecer metas de economia e objetivos de compras;
+- O sistema deve permitir estabelecer gastos recorrentes;
+- O sistema deve permitir estabelecer um salário mensal consistente;
+- O sistema deve permitir o usuário inserir seu salário cada mês individualmente, caso este não seja consistente;
+- O sistema deve sugerir um corte ou uma adaptação de gastos sem necessidades;
+- O sistema deve permitir o usuário acessar o histórico de gastos dos meses passados;
+- O sistema deve apresentar a flutuação dos investimentos definidos pelo usuário;
+- O sistema deve permitir o usuário criar uma conta conjunta com outro usuário;
+- O sistema deve permitir o usuário integrar sua conta de banco ao aplicativo para automatizar o registro de transações;
+- O sistema deve automaticamente atualizar a quantidade de “folga” monetária após cada transação;
+- O sistema deve avisar o usuário caso a quantidade de dinheiro atual seja menor que o valor dos gastos que ainda estão por vir antes do próximo dia de receber salário.
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
+Requisitos não funcionais
 
-**Links Úteis**:
+- O sistema deverá estar disponível 24/7
+- O sistema deverá responder em menos de três segundos;
+- O sistema deverá ser robusto para minimizar quedas;
+- O sistema deverá funcionar offline, mesmo que de forma reduzida;
+- O sistema deverá ter um banco de dados seguro;
+- O sistema deverá ser fácil de manter e atualizar;
+- O sistema deverá ser fácil de utilizar e entender, podendo ser adaptável a todas as idades;
 
-- [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-- [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+# Projeto de Interface
 
-## Requisitos
+## Fluxo do usuário
 
-Os requisitos de um projeto são classificados em dois grupos:
-
-- [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
-  correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
-
-Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
-
-**Links Úteis**:
-
-- [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-- [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
-
-## User Flow
-
-Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
-
-**Links Úteis**:
-
-- [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-- [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-- [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+<div align="center">
+  <img style="max-width:1000px" src="https://ibb.co/CMBjgWd">
+</div>
 
 ## Wireframes
 
-Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
+<div align="center">
+  <img style="max-width:1000px" src="https://ibb.co/B2FHhCZ">
+  <img style="max-width:1000px" src="https://ibb.co/yk8LhXc">
+  <img style="max-width:1000px" src="https://ibb.co/wJ2KytH">
+  <img style="max-width:1000px" src="https://ibb.co/jg0mwqd">
+  <img style="max-width:1000px" src="https://ibb.co/wBgLr75">
+  <img style="max-width:1000px" src="https://ibb.co/t3wrNZY">
+</div>
 
-**Links Úteis**:
+## Protótipo
 
-- [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-- [Figma](https://www.figma.com/)
-- [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-- [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+https://www.figma.com/proto/YrScgbu1O6OavsL52CKzjc/Untitled?node-id=30-75&node-type=canvas&t=ol4Oqw99Dkna0XSQ-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=30%3A75
 
-## Gestão de Projetos
+# Metodologia
 
- Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
+## Organização da Equipe
 
-Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
+- Utilizaremos um quadro Kanban dentro do GitHub para organizar as tarefas entre os membros;
+- Utilizaremos o GitHub para armazenar as versões do código;
+- Utilizaremos a metodologia Scrum para a organização das entregas;
 
-**Links Úteis**:
+## Papeis dos integrantes
 
-- [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-- [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-- [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-- [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+- Henrique Augusto Freire de Oliveira - Scrum Master e Desenvolvedor FullStack
+- Mayssa Luiza Fernandes do Nascimento - Product Owner e Desenvolvedora Front-End
+- Letícia Lelis Alves - Desenvolvedora Back-End
+- Guilherme Neves Rodrigues - Desenvolvedor FullStack
+- Paulo Henrique Araújo Silva - Desenvolvedor Back-End
+- Yuri Gabriel Rocha Rabelo - Desenvolvedor Front-End
+
+# Referências Bibliográficas
+
+\[1\] Estudo mostra que Geração Z tem dificuldade de economizar. Terra, 2024. Disponível em:
+https://www.terra.com.br/economia/estudo-mostra-que-geracao-z-tem-dificuldade-de-economizar,b4825b893dab62f4561a794d7b79f26a0c74n0eh.html
+Acesso em: 21 de setembro de 2024.
+
+\[2\] ALFANO, Bruno. Brasileiros estão abrindo mão da graduação para gastar com bets e jogo do tigrinho, diz pesquisa. O Globo, 2024. Disponível em: https://oglobo.globo.com/brasil/educacao/noticia/2024/09/16/brasileiros-estao-abrindo-mao-da-graduacao-para-gastar-com-bets-e-jogo-do-tigrinho-diz-pesquisa.ghtml Acesso em: 21 de setembro de 2024.
+
+\[3\] ALVARENGA, Darlan. MARTINS, Raphael. Classe média 'encolhe' na pandemia e já tem mesmo 'tamanho' da classe baixa. G1, 2021. Disponível em: https://g1.globo.com/economia/noticia/2021/04/17/classe-media-encolhe-na-pandemia-e-ja-tem-mesmo-tamanho-da-classe-baixa.ghtml
+Acesso em: 21 de setembro de 2024.
