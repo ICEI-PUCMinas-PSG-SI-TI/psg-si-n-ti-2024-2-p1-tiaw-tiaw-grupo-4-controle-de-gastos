@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -85,14 +84,14 @@ h3.texto2 {
 }
 
 .grafico-canvas {
-    width: 100%; 
-    height: auto; 
+    width: 100%;
+    height: auto;
 }
 
 .botoesGastos {
     display: flex;
     justify-content: flex-end;
-    gap: 15px;  
+    gap: 15px;
     margin-top: 20px;
 }
 
@@ -120,3 +119,44 @@ h3.texto2 {
 }
 
 
+.criar-meta {
+    position: relative;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 16%;
+    left: 10%;
+    display: block;
+    padding: 10px 20px;
+    background-color: #7908e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.criar-meta:hover {
+    background-color: #583d70;
+    transform: scale(1.05);
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 81%;
+    margin: 6% auto;
+}
+
+.meta-card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 31%;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
