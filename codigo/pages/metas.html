@@ -39,7 +39,7 @@
 
     <div class="container">
         <h1 class="principal">Metas</h1>
-        <button class="criar-meta">Criar Meta</button>
+        <button class="criar-meta" onclick="openModal()">Criar Meta</button>
         <div class="cards-container">
             <div class="card meta-card">
                 <h2>Meta 1</h2>
@@ -54,10 +54,49 @@
                 <p>Descrição da meta 3.</p>
             </div>
         </div>
+    </div>
+
+    <div id="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+            <h2>Adicionar Meta</h2>
+            <form id="metaForm">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required><br>
+
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" required></textarea><br>
+
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" required><br>
+
+                <label for="tempo">Tempo:</label>
+                <input type="date" id="tempo" name="tempo" required><br>
+
+                <button class="btn-modal" type="submit">Adicionar Meta</button>
+            </form>
         </div>
+    </div>
+
+    <script>
+
+        function openModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        window.onclick = function (event) {
+            if (event.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
 
 
-    </main>
+        document.getElementById('metaForm').onsubmit = function (event) {
+            event.preventDefault();
+            console.log("Meta adicionada");
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
