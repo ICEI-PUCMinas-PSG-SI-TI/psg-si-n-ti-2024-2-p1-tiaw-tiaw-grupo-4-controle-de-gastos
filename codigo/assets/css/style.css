@@ -3,12 +3,69 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #F5EAFF;
 }
-ECHO est  ativado.
+
 header {
     background-color: #333;
     color: white;
     padding: 20px;
     text-align: center;
 }
+
+
+nav.menu-lateral {
+    width: 45px;
+    height: 100%;
+    background-color: #FFFFFF; 
+    padding: 100px 0 0px 10px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li.item-menu a{ 
+    color: black;
+    text-decoration: none;
+    padding: 60px 0px 0px 0px;
+    display: flex;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 15px;
+}
+ul li.item-menu a .icon > i{
+    font-size: 20px;
+    padding: 0px 0px 10px 10px;
+}
+
+h1.principal {
+    position: center;
+    text-align: center;
+    margin-top: 55px;
+    font-size: 32px;
+}
+
+h3.texto1 {
+    position: fixed;
+    text-align: center;
+    padding: 10%;
+    width: 100%;
+    left: 8%;
+    }
+
+h3.texto2 {
+    position: fixed;
+    text-align: center;
+    padding: 10%;
+    width: 100%;
+    left: 17%;
+    }
