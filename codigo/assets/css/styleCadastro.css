@@ -34,24 +34,16 @@ h1 {
   text-align: center;
 }
 
-input {
-  background-color: #d9d9d9;
-  padding: 15px;
-  border: none;
-  font-size: 18px;
-  border-radius: 50px;
-  width: 47%;
-  margin: 1%;
-  text-indent: 40px;
-}
-
-input[type="text"] {
+input, input[type="text"] {
   background-color: #d9d9d9;
   padding: 15px;
   border: none;
   font-size: 18px;
   border-radius: 50px;
   width: 50%;
+  margin: 1%;
+  text-indent: 40px;
+  box-sizing: unset;
 }
 
 #btnCadastrar {

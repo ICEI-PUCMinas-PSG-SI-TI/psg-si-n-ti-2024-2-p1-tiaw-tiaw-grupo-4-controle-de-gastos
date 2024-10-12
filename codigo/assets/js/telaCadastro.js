@@ -4,55 +4,47 @@ botaoSubmit.addEventListener("click", receberCadastro)
 async function receberCadastro() {
   let formValido = true
   let nomeUsuario = document.getElementById("inputUsuario").value
-  if (nomeUsuario == "" || nomeUsuario == null) {
-    alert("O campo de nome não pode ser vazio!")
-    formValido = false
-  }
   let emailUsuario = document.getElementById("inputEmail").value
-  if (emailUsuario == "" || emailUsuario == null) {
-    alert("O campo de email não pode ser vazio!")
-    formValido = false
-  }
   let senhaUsuario = document.getElementById("inputSenha").value
-  if (senhaUsuario == "" || senhaUsuario == null) {
-    alert("O campo de senha não pode ser vazio!")
-    formValido = false
-  }
   let senhaConfirmadaUsuario = document.getElementById(
     "inputSenhaConfirmada",
   ).value
-  if (
+  if (nomeUsuario == "" || nomeUsuario == null) {
+    alert("O campo de nome não pode ser vazio!")
+    formValido = false
+  } else if (emailUsuario == "" || emailUsuario == null) {
+    alert("O campo de email não pode ser vazio!")
+    formValido = false // verificar se email tem @gmail.com etc
+  } else if (senhaUsuario == "" || senhaUsuario == null) {
+    alert("O campo de senha não pode ser vazio!")
+    formValido = false
+  } else if (
     senhaConfirmadaUsuario == "" ||
     senhaConfirmadaUsuario == null ||
     senhaConfirmadaUsuario != senhaUsuario
   ) {
-    alert("Digite a mesma senha!")
+    alert("As duas senhas não são iguais")
     formValido = false
   }
 
   if (formValido) {
     let senhaHash = await digestMessage(senhaUsuario)
     const options = {
-      method: "POST",
+      method: 'POST',
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // deixar para o servidor criar id's antes de inserir no arquivo json, para garantir que id's não sejam repetidos
         nome: nomeUsuario,
         email: emailUsuario,
         pw_hash: senhaHash,
       }),
     }
-    /*
-    fazer requisição POST para o servidor usando fetch
-     
-    fetch("endereçoDoServidor", options)
+
+    fetch("http://localhost:3000/", options)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error))
-    
-    */
   }
 }
 
