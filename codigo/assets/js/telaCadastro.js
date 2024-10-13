@@ -14,23 +14,21 @@ async function receberCadastro() {
     formValido = false
   } else if (emailUsuario == "" || emailUsuario == null) {
     alert("O campo de email não pode ser vazio!")
-    formValido = false // verificar se email tem @gmail.com etc
+    formValido = false 
   } else if (senhaUsuario == "" || senhaUsuario == null) {
     alert("O campo de senha não pode ser vazio!")
     formValido = false
-  } else if (
-    senhaConfirmadaUsuario == "" ||
+  } else if (senhaConfirmadaUsuario == "" ||
     senhaConfirmadaUsuario == null ||
     senhaConfirmadaUsuario != senhaUsuario
   ) {
     alert("As duas senhas não são iguais")
     formValido = false
   }
-
   if (formValido) {
     let senhaHash = await digestMessage(senhaUsuario)
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -38,9 +36,8 @@ async function receberCadastro() {
         nome: nomeUsuario,
         email: emailUsuario,
         pw_hash: senhaHash,
-      }),
+      })
     }
-
     fetch("http://localhost:3000/", options)
       .then((response) => response.json())
       .then((data) => console.log(data))

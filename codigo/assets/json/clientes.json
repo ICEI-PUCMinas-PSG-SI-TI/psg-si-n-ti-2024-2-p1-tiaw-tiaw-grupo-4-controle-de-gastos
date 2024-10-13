@@ -1,0 +1,47 @@
+{
+    "cliente": [
+      {
+        "id": 1,
+        "idContaConjunta": 2,
+        "nome": "André Gomes",
+        "email": "andregomes28@gmail.com",
+        "pw_hash": "d6a30e6eb605f5255588ab8b6eef33d4115404b24af3e98b8da90006",
+        "metas": [
+          {
+            "id": 1,
+            "titulo": "Guardar dinheiro",
+            "descricao": "Guardar dinheiro pra viajar no final do ano.",
+            "valor": 1200,
+            "tempo": "2024-01-01"
+          }
+        ],
+        "gastos": [
+          {
+            "id": 1,
+            "titulo": "Pedido no Burger King",
+            "categoria": "Comida",
+            "data": "2024-01-01",
+            "valor": 105.0,
+            "recorrencia": ["INDIVIDUAL", "MENSAL", "ANUAL"]
+          }
+        ],
+        "entradas": [
+          {
+            "id": 1,
+            "titulo": "Meu salário",
+            "data": "2024-01-01",
+            "valor": 1500.0,
+            "recorrencia": ["INDIVIDUAL", "MENSAL"]
+          },
+          {
+            "id": 2,
+            "titulo": "Marquinhos me pagou",
+            "data": "2024-01-01",
+            "valor": 200.0,
+            "recorrencia": ["INDIVIDUAL", "MENSAL"]
+          }
+        ]
+      }
+    ]
+  }
+  
