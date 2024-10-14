@@ -8,21 +8,19 @@ const server = http.createServer(async (req, res) => {
     res.setHeader("Access-Control-Allow-Methods","*")
     const vetorClientes = await carregaClientes();
     if (req.url === "/" && req.method === 'OPTIONS') {
-        console.log(req.method)
         res.writeHead(200, { "Content-Type": "text/plain" })
         res.end("OPTIONS ok")
     }  
     else if (req.url === "/" && req.method === 'POST') {
-        console.log(req.method)
         let body = '';
         req.on('data', buffer => {
             body += buffer.toString(); // converte do buffer para string à medida que bytes são recebidos (assincrono)
         });
         req.on('end', async () => {
-            const novoCliente = JSON.parse(body);
-            // gerar um ID não-repetido para este cliente
+            let idAutomatico =  gerarId(vetorClientes); 
+            const novoCliente = {id:idAutomatico , ...JSON.parse(body)};
             vetorClientes.cliente.push(novoCliente)
-            await inserirCliente(vetorClientes);
+            await atualizarArquivo(vetorClientes);
         });
         res.writeHead(200, { "Content-Type": "text/plain" })
         res.end("POST ok");
@@ -30,15 +28,24 @@ const server = http.createServer(async (req, res) => {
     else if (req.method === 'GET') {
         res.writeHead(200, { "Content-Type": "text/plain" })
         console.log(req.method)
-        var parametros = url.parse(req.url, true).query;
-        // se houver id, retorna o usuario dessa id
-        // se não, retorna todos
-        if(parametros.id === undefined)
-        {
-            console.log("id não informado")
+        let parametros = url.parse(req.url, true).query;
+        if(req.url === "/") {
+            res.end(JSON.stringify(vetorClientes.cliente, null, "\t"))
         }
-        else console.log("id = " + parametros.id)
-        res.end("GET ok");
+        else {
+            let usuarioEncontrado = false, indice
+            for(let i = 0; i < vetorClientes.cliente.length; i++) {
+                if(parametros.id == vetorClientes.cliente[i].id) {
+                    usuarioEncontrado = true;
+                    indice = i;
+                }
+            }
+            if(usuarioEncontrado)
+            {
+                res.end(JSON.stringify(vetorClientes.cliente[indice], null, "\t"));
+            }
+            else res.end("Usuário não encontrado")
+        }
     }
     else if (req.method === 'PUT') {
         res.writeHead(200, { "Content-Type": "text/plain" })
@@ -70,8 +77,28 @@ server.listen(port, () => {
     console.log(`Server listening on port ${port}`)
 })
 
-async function carregaClientes()
-{
+function gerarId(vetorClientes) {
+    let valido;
+    let i;
+    if(vetorClientes.cliente.length == 0) {
+        return 0;
+    }
+    else {
+        for(i = 0; i <= vetorClientes.cliente.length; i++) {
+            valido = true;
+            for(let j = 0; j < vetorClientes.cliente.length; j++) {
+                if(i == vetorClientes.cliente[j].id) {
+                    valido = false;
+                }
+            }
+            if(valido) {
+                return i;
+            }
+        }
+    }
+}
+
+async function carregaClientes() {
     return new Promise((resolve,reject) => {
         fs.readFile('../json/clientes.json', "utf8", (error, data) => {
             if (error) {
@@ -87,12 +114,11 @@ async function carregaClientes()
     })
 }
 
-async function inserirCliente(vetorClientes)
-{
+async function atualizarArquivo(vetorClientes) {
     return new Promise((resolve,reject) => {
         fs.writeFile('../json/clientes.json', JSON.stringify(vetorClientes, null, "\t"), 'utf8', err => {
             if (err) {
-              console.error(err);
+              console.error("Erro ao atualizar o arquivo");
             } else {
               console.log("Arquivo atualizado com sucesso")
             }
