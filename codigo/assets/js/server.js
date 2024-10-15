@@ -8,10 +8,13 @@ const server = http.createServer(async (req, res) => {
     res.setHeader("Access-Control-Allow-Methods","*");
     const vetorClientes = await carregaClientes();
     if (req.url === "/" && req.method === 'OPTIONS') {
+        console.log(req.method);
         res.writeHead(200, { "Content-Type": "text/plain" });
         res.end("OPTIONS ok");
     }  
     else if (req.url === "/" && req.method === 'POST') {
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        console.log(req.method);
         let body = '';
         req.on('data', buffer => {
             body += buffer.toString(); // converte do buffer para string à medida que bytes são recebidos (assincrono)
@@ -22,23 +25,22 @@ const server = http.createServer(async (req, res) => {
             if(verificaClienteEmail(novoCliente.email,vetorClientes)) {
                 vetorClientes.cliente.push(novoCliente);
                 await atualizarArquivo(vetorClientes);
+                res.end("POST ok");
             }
-            else console.log("Já existe outra conta com este email");
-            // enviar essa mensagem de volta pra tela do cadastro
+            else res.end("Já existe outra conta com este email");
         });
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("POST ok");
     }  
     else if (req.method === 'GET') {
+        console.log(req.method);
         res.writeHead(200, { "Content-Type": "text/plain" });
         let parametros = url.parse(req.url, true).query;
         if(req.url === "/") {
             res.end(JSON.stringify(vetorClientes.cliente, null, "\t"));
         }
         else {
-            const cliente = verificaClienteId(parametros.id, vetorClientes);
-            if(cliente != null) {
-                res.end(JSON.stringify(cliente, null, "\t"));
+            const indiceCliente = verificaClienteId(parametros.id, vetorClientes);
+            if(indiceCliente != null) {
+                res.end(JSON.stringify(vetorClientes.cliente[indiceCliente], null, "\t"));
             }
             else res.end("Usuário não encontrado");
         }
@@ -50,19 +52,20 @@ const server = http.createServer(async (req, res) => {
         if(parametros.id != null) {
             
         }
-        // se houver id, atualiza o usuario dessa id
-        // se não, retorna erro
-        console.log("id = " + parametros.id);
         res.end("PUT ok");
     }
     else if (req.method === 'DELETE') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         console.log(req.method);
         var parametros = url.parse(req.url, true).query;
-        // se houver id, deleta e retorna o usuario dessa id
-        // se não, retorna erro
-        console.log("id = " + parametros.id);
-        res.end("DELETE ok");
+        let indiceCliente = verificaClienteId(parametros.id, vetorClientes);
+        if(indiceCliente != null) {
+            const clienteDeletado = vetorClientes.cliente.splice(indiceCliente,1);
+            atualizarArquivo(vetorClientes);
+            res.end(JSON.stringify(clienteDeletado, null, "\t"));
+        } else {
+            res.end("Cliente não encontrado")
+        }
     }
     else {
         console.log("Erro 404")
@@ -85,7 +88,7 @@ function verificaClienteId(id, vetorClientes) {
         }
     }
     if(usuarioEncontrado) {
-        return vetorClientes.cliente[indice];
+        return indice;
     }
     return null;
 }
