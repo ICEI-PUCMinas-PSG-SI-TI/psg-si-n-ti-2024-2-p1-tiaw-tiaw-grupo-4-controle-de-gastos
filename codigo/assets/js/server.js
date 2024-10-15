@@ -1,15 +1,15 @@
-const http = require("http")
+const http = require("http");
 const fs = require("fs");
 var url = require('url');
 
 const server = http.createServer(async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Headers","*")
-    res.setHeader("Access-Control-Allow-Methods","*")
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers","*");
+    res.setHeader("Access-Control-Allow-Methods","*");
     const vetorClientes = await carregaClientes();
     if (req.url === "/" && req.method === 'OPTIONS') {
-        res.writeHead(200, { "Content-Type": "text/plain" })
-        res.end("OPTIONS ok")
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.end("OPTIONS ok");
     }  
     else if (req.url === "/" && req.method === 'POST') {
         let body = '';
@@ -18,64 +18,86 @@ const server = http.createServer(async (req, res) => {
         });
         req.on('end', async () => {
             let idAutomatico =  gerarId(vetorClientes); 
-            const novoCliente = {id:idAutomatico , ...JSON.parse(body)};
-            vetorClientes.cliente.push(novoCliente)
-            await atualizarArquivo(vetorClientes);
+            const novoCliente = {id:idAutomatico, idContaConjunta:null , ...JSON.parse(body), metas: [], gastos: [], entradas: []};
+            if(verificaClienteEmail(novoCliente.email,vetorClientes)) {
+                vetorClientes.cliente.push(novoCliente);
+                await atualizarArquivo(vetorClientes);
+            }
+            else console.log("Já existe outra conta com este email");
+            // enviar essa mensagem de volta pra tela do cadastro
         });
-        res.writeHead(200, { "Content-Type": "text/plain" })
+        res.writeHead(200, { "Content-Type": "text/plain" });
         res.end("POST ok");
     }  
     else if (req.method === 'GET') {
-        res.writeHead(200, { "Content-Type": "text/plain" })
-        console.log(req.method)
+        res.writeHead(200, { "Content-Type": "text/plain" });
         let parametros = url.parse(req.url, true).query;
         if(req.url === "/") {
-            res.end(JSON.stringify(vetorClientes.cliente, null, "\t"))
+            res.end(JSON.stringify(vetorClientes.cliente, null, "\t"));
         }
         else {
-            let usuarioEncontrado = false, indice
-            for(let i = 0; i < vetorClientes.cliente.length; i++) {
-                if(parametros.id == vetorClientes.cliente[i].id) {
-                    usuarioEncontrado = true;
-                    indice = i;
-                }
+            const cliente = verificaClienteId(parametros.id, vetorClientes);
+            if(cliente != null) {
+                res.end(JSON.stringify(cliente, null, "\t"));
             }
-            if(usuarioEncontrado)
-            {
-                res.end(JSON.stringify(vetorClientes.cliente[indice], null, "\t"));
-            }
-            else res.end("Usuário não encontrado")
+            else res.end("Usuário não encontrado");
         }
     }
     else if (req.method === 'PUT') {
-        res.writeHead(200, { "Content-Type": "text/plain" })
-        console.log(req.method)
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        console.log(req.method);
         var parametros = url.parse(req.url, true).query;
+        if(parametros.id != null) {
+            
+        }
         // se houver id, atualiza o usuario dessa id
         // se não, retorna erro
-        console.log("id = " + parametros.id)
+        console.log("id = " + parametros.id);
         res.end("PUT ok");
     }
     else if (req.method === 'DELETE') {
-        res.writeHead(200, { "Content-Type": "text/plain" })
-        console.log(req.method)
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        console.log(req.method);
         var parametros = url.parse(req.url, true).query;
         // se houver id, deleta e retorna o usuario dessa id
         // se não, retorna erro
-        console.log("id = " + parametros.id)
+        console.log("id = " + parametros.id);
         res.end("DELETE ok");
     }
     else {
         console.log("Erro 404")
-        res.writeHead(404, { "Content-Type": "text/plain" })
-        res.end("Page not found")
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("Page not found");
     }
 })
 
 const port = 3000
 server.listen(port, () => {
-    console.log(`Server listening on port ${port}`)
+    console.log(`Server listening on port ${port}`);
 })
+
+function verificaClienteId(id, vetorClientes) {
+    let usuarioEncontrado = false, indice;
+    for(let i = 0; i < vetorClientes.cliente.length; i++) {
+        if(id == vetorClientes.cliente[i].id) {
+            usuarioEncontrado = true;
+            indice = i;
+        }
+    }
+    if(usuarioEncontrado) {
+        return vetorClientes.cliente[indice];
+    }
+    return null;
+}
+
+function verificaClienteEmail(email, vetorClientes) {
+    for(let i = 0; i < vetorClientes.cliente.length; i++) {
+        if(email == vetorClientes.cliente[i].email) {
+            return false;
+        }
+    }
+    return true;
+}
 
 function gerarId(vetorClientes) {
     let valido;
@@ -109,7 +131,7 @@ async function carregaClientes() {
             if (Array.isArray(objClientes.cliente)) {
                 resolve(objClientes);
             }
-            else resolve([])
+            else resolve([]);
         });
     })
 }
