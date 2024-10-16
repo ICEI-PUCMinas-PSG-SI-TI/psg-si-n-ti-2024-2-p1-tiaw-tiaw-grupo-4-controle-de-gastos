@@ -24,8 +24,8 @@ const server = http.createServer(async (req, res) => {
             const novoCliente = {id:idAutomatico, idContaConjunta:null , ...JSON.parse(body), metas: [], gastos: [], entradas: []};
             if(verificaClienteEmail(novoCliente.email,vetorClientes)) {
                 vetorClientes.cliente.push(novoCliente);
+                res.end("POST ok"); // tem algum problema com essa linha, post não retorna
                 await atualizarArquivo(vetorClientes);
-                res.end("POST ok");
             }
             else res.end("Já existe outra conta com este email");
         });
@@ -45,14 +45,50 @@ const server = http.createServer(async (req, res) => {
             else res.end("Usuário não encontrado");
         }
     }
-    else if (req.method === 'PUT') {
+    else if (req.url === "/" && req.method === 'PUT') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         console.log(req.method);
-        var parametros = url.parse(req.url, true).query;
-        if(parametros.id != null) {
-            
-        }
-        res.end("PUT ok");
+        let body = '';
+        req.on('data', buffer => {
+            body += buffer.toString();
+        });
+        req.on('end', async () => {
+            const clienteAlterado = JSON.parse(body);
+            if(clienteAlterado.id != null) {
+                let indiceCliente = verificaClienteId(clienteAlterado.id, vetorClientes);
+                if(indiceCliente != null) {
+                    if(clienteAlterado.email == vetorClientes.cliente[indiceCliente].email 
+                    || verificaClienteEmail(clienteAlterado.email, vetorClientes)) {
+                        if(clienteAlterado.nome != null && clienteAlterado.nome !== "") {
+                            vetorClientes.cliente[indiceCliente].nome = clienteAlterado.nome;
+                        }
+                        if(clienteAlterado.email != null && clienteAlterado.email !== "") {
+                            vetorClientes.cliente[indiceCliente].email = clienteAlterado.email;
+                        }
+                        if(clienteAlterado.pw_hash != null && clienteAlterado.pw_hash !== "") {
+                            vetorClientes.cliente[indiceCliente].pw_hash = clienteAlterado.pw_hash;
+                        }
+                        if(clienteAlterado.metas != null) {
+                            vetorClientes.cliente[indiceCliente].metas = clienteAlterado.metas;
+                        }
+                        if(clienteAlterado.gastos != null) {
+                            vetorClientes.cliente[indiceCliente].gastos = clienteAlterado.gastos;
+                        }
+                        if(clienteAlterado.entradas != null) {
+                            vetorClientes.cliente[indiceCliente].entradas = clienteAlterado.entradas;
+                        }
+                        res.end("Cliente atualizado");
+                        await atualizarArquivo(vetorClientes);
+                    }
+                    else {
+                        res.end("Email já em uso");
+                    }
+                }
+                else {
+                    res.end("Cliente não encontrado");
+                }
+            } 
+        });
     }
     else if (req.method === 'DELETE') {
         res.writeHead(200, { "Content-Type": "text/plain" });
