@@ -115,15 +115,10 @@ server.listen(port, () => {
 })
 
 function verificaClienteId(id, vetorClientes) {
-    let usuarioEncontrado = false, indice;
     for(let i = 0; i < vetorClientes.cliente.length; i++) {
         if(id == vetorClientes.cliente[i].id) {
-            usuarioEncontrado = true;
-            indice = i;
+            return i;
         }
-    }
-    if(usuarioEncontrado) {
-        return indice;
     }
     return null;
 }
