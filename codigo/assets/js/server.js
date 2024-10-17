@@ -21,11 +21,11 @@ const server = http.createServer(async (req, res) => {
         });
         req.on('end', async () => {
             let idAutomatico =  gerarId(vetorClientes); 
-            const novoCliente = {id:idAutomatico, idContaConjunta:null , ...JSON.parse(body), metas: [], gastos: [], entradas: []};
-            if(verificaClienteEmail(novoCliente.email,vetorClientes)) {
+            const novoCliente = {...JSON.parse(body), id:idAutomatico, idContaConjunta:null , metas: [], gastos: [], entradas: []};
+            if(verificaClienteEmail(novoCliente.email,vetorClientes) == null) {
                 vetorClientes.cliente.push(novoCliente);
-                res.end("POST ok"); // tem algum problema com essa linha, post não retorna
-                await atualizarArquivo(vetorClientes);
+                atualizarArquivo(vetorClientes);
+                res.end("Cliente inserido com sucesso"); 
             }
             else res.end("Já existe outra conta com este email");
         });
@@ -47,7 +47,6 @@ const server = http.createServer(async (req, res) => {
     }
     else if (req.url === "/" && req.method === 'PUT') {
         res.writeHead(200, { "Content-Type": "text/plain" });
-        console.log(req.method);
         let body = '';
         req.on('data', buffer => {
             body += buffer.toString();
@@ -58,7 +57,7 @@ const server = http.createServer(async (req, res) => {
                 let indiceCliente = verificaClienteId(clienteAlterado.id, vetorClientes);
                 if(indiceCliente != null) {
                     if(clienteAlterado.email == vetorClientes.cliente[indiceCliente].email 
-                    || verificaClienteEmail(clienteAlterado.email, vetorClientes)) {
+                    || verificaClienteEmail(clienteAlterado.email, vetorClientes) == null) {
                         if(clienteAlterado.nome != null && clienteAlterado.nome !== "") {
                             vetorClientes.cliente[indiceCliente].nome = clienteAlterado.nome;
                         }
@@ -69,30 +68,29 @@ const server = http.createServer(async (req, res) => {
                             vetorClientes.cliente[indiceCliente].pw_hash = clienteAlterado.pw_hash;
                         }
                         if(clienteAlterado.metas != null) {
-                            vetorClientes.cliente[indiceCliente].metas = clienteAlterado.metas;
-                        }
+                            vetorClientes.cliente[indiceCliente].metas = clienteAlterado.metas;                        }
                         if(clienteAlterado.gastos != null) {
                             vetorClientes.cliente[indiceCliente].gastos = clienteAlterado.gastos;
                         }
                         if(clienteAlterado.entradas != null) {
                             vetorClientes.cliente[indiceCliente].entradas = clienteAlterado.entradas;
                         }
+                        atualizarArquivo(vetorClientes);
                         res.end("Cliente atualizado");
-                        await atualizarArquivo(vetorClientes);
                     }
                     else {
-                        res.end("Email já em uso");
+                        res.end("Email já em uso, usuário não foi atualizado");
                     }
                 }
                 else {
                     res.end("Cliente não encontrado");
                 }
             } 
+            else res.end("id não foi informado");
         });
     }
     else if (req.method === 'DELETE') {
         res.writeHead(200, { "Content-Type": "text/plain" });
-        console.log(req.method);
         var parametros = url.parse(req.url, true).query;
         let indiceCliente = verificaClienteId(parametros.id, vetorClientes);
         if(indiceCliente != null) {
@@ -132,10 +130,10 @@ function verificaClienteId(id, vetorClientes) {
 function verificaClienteEmail(email, vetorClientes) {
     for(let i = 0; i < vetorClientes.cliente.length; i++) {
         if(email == vetorClientes.cliente[i].email) {
-            return false;
+            return i;
         }
     }
-    return true;
+    return null;
 }
 
 function gerarId(vetorClientes) {
