@@ -68,7 +68,8 @@ const server = http.createServer(async (req, res) => {
                             vetorClientes.cliente[indiceCliente].pw_hash = clienteAlterado.pw_hash;
                         }
                         if(clienteAlterado.metas != null) {
-                            vetorClientes.cliente[indiceCliente].metas = clienteAlterado.metas;                        }
+                            vetorClientes.cliente[indiceCliente].metas = clienteAlterado.metas;                        
+                        }
                         if(clienteAlterado.gastos != null) {
                             vetorClientes.cliente[indiceCliente].gastos = clienteAlterado.gastos;
                         }
