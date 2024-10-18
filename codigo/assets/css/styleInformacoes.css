@@ -1,0 +1,62 @@
+#fundoUsuario {
+    width: 65%;
+    height: 500px;
+    background-color: white;
+    padding: 70px;
+    color:black;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 20%;
+    border-radius: 50px;
+    display: flex;
+}
+
+.textoUsuario {
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    background-color: #D3D3D3;
+}
+.secaoInformacao {
+    margin: 1%;
+    margin-right: 6%;
+    margin-left: 3%;
+    width: 40%;
+}
+
+.btnEditar {
+    padding: 10px;
+    margin-top: 2%;
+    background-color: #3f225f;
+    color: white;
+    border: none;
+    font-size: 16px;
+    width: 120px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    #fundoUsuario {
+        width: 60%;
+        display: block;
+    }
+    .textoUsuario {
+        width:400px;
+    }
+}
+@media (max-width: 650px) {
+    #fundoUsuario {
+        width: 50%;
+    }
+    .textoUsuario {
+        width:250%;
+    }
+}
+@media (max-width: 430px) {
+    #fundoUsuario {
+        width: 45%;
+    }
+}

@@ -1,7 +1,10 @@
 html,
 body {
   background-color: white;
-  height: 100%;
+}
+
+#formLogin{
+  margin-top: 9%;
 }
 
 h1 {
@@ -20,6 +23,7 @@ h1 {
 }
 
 .fundoCashByMe {
+  height: 849px;
   background-color: #f5eaff;
   width: 50%;
   margin-left: 0px;
@@ -52,32 +56,32 @@ input, input[type="text"] {
   color: white;
   border: none;
   font-size: 30px;
-  height: 8%;
-  width: 50%;
+  height: 50px;
+  width: 53%;
   border-radius: 15px;
   cursor: pointer;
 }
 
 #inputUsuario {
-  background-image: url(/codigo/assets/img/iconeUsuarioDefault.png);
+  background-image: url(../img/iconeUsuarioDefault.png);
   background-size: 33px;
   background-position: 13px 10px;
   background-repeat: no-repeat;
 }
 #inputEmail {
-  background-image: url(/codigo/assets/img/iconeEmail.png);
+  background-image: url(../img/iconeEmail.png);
   background-size: 33px;
   background-position: 13px 10px;
   background-repeat: no-repeat;
 }
 #inputSenha {
-  background-image: url(/codigo/assets/img/iconeSenha.png);
+  background-image: url(../img/iconeSenha.png);
   background-size: 30px;
   background-position: 15px 10px;
   background-repeat: no-repeat;
 }
 #inputSenhaConfirmada {
-  background-image: url(/codigo/assets/img/iconeSenha.png);
+  background-image: url(../img/iconeSenha.png);
   background-size: 30px;
   background-position: 15px 10px;
   background-repeat: no-repeat;
@@ -89,5 +93,17 @@ input, input[type="text"] {
   }
   .fundoCashByMe {
     display: none;
+  }
+}
+
+@media (max-height: 848px) {
+  .fundoCashByMe {
+    height: 820px;
+  }
+}
+
+@media (max-height: 700px) {
+  .fundoCashByMe {
+    height: 694px;
   }
 }
