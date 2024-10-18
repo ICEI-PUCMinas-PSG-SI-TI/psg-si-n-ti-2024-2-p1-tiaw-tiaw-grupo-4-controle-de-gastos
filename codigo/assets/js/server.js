@@ -31,13 +31,14 @@ const server = http.createServer(async (req, res) => {
         });
     }  
     else if (req.method === 'GET') {
-        console.log(req.method);
         res.writeHead(200, { "Content-Type": "text/plain" });
         let parametros = url.parse(req.url, true).query;
         if(req.url === "/") {
+            console.log("GET ALL");
             res.end(JSON.stringify(vetorClientes.cliente, null, "\t"));
         }
         else {
+            console.log("GET id:" + parametros.id)
             const indiceCliente = verificaClienteId(parametros.id, vetorClientes);
             if(indiceCliente != null) {
                 res.end(JSON.stringify(vetorClientes.cliente[indiceCliente], null, "\t"));
@@ -77,10 +78,10 @@ const server = http.createServer(async (req, res) => {
                             vetorClientes.cliente[indiceCliente].entradas = clienteAlterado.entradas;
                         }
                         atualizarArquivo(vetorClientes);
-                        res.end("Cliente atualizado");
+                        res.end(JSON.stringify(clienteAlterado));
                     }
                     else {
-                        res.end("Email já em uso, usuário não foi atualizado");
+                        res.end(JSON.stringify(vetorClientes.cliente[indiceCliente]));
                     }
                 }
                 else {

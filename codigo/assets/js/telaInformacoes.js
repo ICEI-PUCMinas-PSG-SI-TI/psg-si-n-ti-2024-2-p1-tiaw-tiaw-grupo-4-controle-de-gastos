@@ -7,6 +7,11 @@ botaoEditarNome.addEventListener("click", editarNome);
 let botaoEditarEmail = document.getElementById("botaoEmail");
 botaoEditarEmail.addEventListener("click", editarEmail);
 
+let idUsuario = 0; // deveremos receber o id do usuário através do sistema de login
+
+receberInformacoes();
+
+
 function editarNome() {
     if (inputNome.hasAttribute('readonly')) {
         inputNome.removeAttribute('readonly');
@@ -19,6 +24,7 @@ function editarNome() {
         botaoEditarNome.innerHTML = "Editar nome";
         botaoEditarNome.style.backgroundColor = "#3f225f";
         inputNome.style.backgroundColor = "#D3D3D3";
+        atualizarNome();
     }
 }
 
@@ -34,5 +40,53 @@ function editarEmail() {
         botaoEditarEmail.innerHTML = "Editar email";
         botaoEditarEmail.style.backgroundColor = "#3f225f";
         inputEmail.style.backgroundColor = "#D3D3D3";
+        atualizarEmail();
     }
+}
+
+async function receberInformacoes() {
+    const options = {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+        }
+      }
+    const response = await fetch("http://localhost:3000/?id="+idUsuario, options);
+    const usuarioJson = await response.json();
+    inputNome.value = usuarioJson.nome;
+    inputEmail.value = usuarioJson.email;
+}
+
+async function atualizarNome(){
+    let nomeUsuario = document.getElementById("inputNome").value
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id: idUsuario,
+            nome: nomeUsuario
+        })
+      }
+    const response = await fetch("http://localhost:3000/", options);
+    const usuarioJson = await response.json();
+    inputNome.value = usuarioJson.nome;
+}
+
+async function atualizarEmail(){
+    let emailUsuario = document.getElementById("inputEmail").value
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id: idUsuario,
+            email: emailUsuario
+        })
+      }
+    const response = await fetch("http://localhost:3000/", options);
+    const usuarioJson = await response.json();
+    inputEmail.value = usuarioJson.email;
 }

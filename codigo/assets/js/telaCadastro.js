@@ -1,32 +1,30 @@
-let botaoSubmit = document.getElementById("btnCadastrar")
-botaoSubmit.addEventListener("click", receberCadastro)
+let botaoSubmit = document.getElementById("btnCadastrar");
+botaoSubmit.addEventListener("click", receberCadastro);
 
 async function receberCadastro() {
-  let formValido = true
-  let nomeUsuario = document.getElementById("inputUsuario").value
-  let emailUsuario = document.getElementById("inputEmail").value
-  let senhaUsuario = document.getElementById("inputSenha").value
-  let senhaConfirmadaUsuario = document.getElementById(
-    "inputSenhaConfirmada",
-  ).value
+  let formValido = true;
+  let nomeUsuario = document.getElementById("inputUsuario").value;
+  let emailUsuario = document.getElementById("inputEmail").value;
+  let senhaUsuario = document.getElementById("inputSenha").value;
+  let senhaConfirmadaUsuario = document.getElementById("inputSenhaConfirmada",).value;
   if (nomeUsuario == "" || nomeUsuario == null) {
-    alert("O campo de nome não pode ser vazio!")
-    formValido = false
+    alert("O campo de nome não pode ser vazio!");
+    formValido = false;
   } else if (emailUsuario == "" || emailUsuario == null) {
-    alert("O campo de email não pode ser vazio!")
-    formValido = false 
+    alert("O campo de email não pode ser vazio!");
+    formValido = false;
   } else if (senhaUsuario == "" || senhaUsuario == null) {
-    alert("O campo de senha não pode ser vazio!")
-    formValido = false
+    alert("O campo de senha não pode ser vazio!");
+    formValido = false;
   } else if (senhaConfirmadaUsuario == "" ||
     senhaConfirmadaUsuario == null ||
     senhaConfirmadaUsuario != senhaUsuario
   ) {
-    alert("As duas senhas não são iguais")
-    formValido = false
+    alert("As duas senhas não são iguais");
+    formValido = false;
   }
   if (formValido) {
-    let senhaHash = await digestMessage(senhaUsuario)
+    let senhaHash = await digestMessage(senhaUsuario);
     const options = {
       method: "POST",
       headers: {
@@ -39,17 +37,15 @@ async function receberCadastro() {
       })
     }
     fetch("http://localhost:3000/", options)
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error))
+      .catch((error) => console.error(error));
   }
 }
 
 async function digestMessage(message) {
   // função de hashing obtida de developer.mozilla.org
-  const msgUint8 = new TextEncoder().encode(message) // codifica a entrada como (utf-8) Uint8Array
-  const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgUint8) // transforma em hash
-  const hashArray = Array.from(new Uint8Array(hashBuffer)) // converte buffer para byte array
-  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("") // converte bytes para string de hexadecimais
-  return hashHex
+  const msgUint8 = new TextEncoder().encode(message); // codifica a entrada como (utf-8) Uint8Array
+  const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgUint8); // transforma em hash
+  const hashArray = Array.from(new Uint8Array(hashBuffer)); // converte buffer para byte array
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join(""); // converte bytes para string de hexadecimais
+  return hashHex;
 }
