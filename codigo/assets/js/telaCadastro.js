@@ -6,7 +6,7 @@ async function receberCadastro() {
   let nomeUsuario = document.getElementById("inputUsuario").value;
   let emailUsuario = document.getElementById("inputEmail").value;
   let senhaUsuario = document.getElementById("inputSenha").value;
-  let senhaConfirmadaUsuario = document.getElementById("inputSenhaConfirmada",).value;
+  let senhaConfirmadaUsuario = document.getElementById("inputSenhaConfirmada").value;
   if (nomeUsuario == "" || nomeUsuario == null) {
     alert("O campo de nome não pode ser vazio!");
     formValido = false;

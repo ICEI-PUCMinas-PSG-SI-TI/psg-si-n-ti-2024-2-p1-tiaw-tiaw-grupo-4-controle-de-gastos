@@ -54,6 +54,7 @@ const server = http.createServer(async (req, res) => {
         });
         req.on('end', async () => {
             const clienteAlterado = JSON.parse(body);
+            console.log("PUT id:" + clienteAlterado.id);
             if(clienteAlterado.id != null) {
                 let indiceCliente = verificaClienteId(clienteAlterado.id, vetorClientes);
                 if(indiceCliente != null) {
@@ -94,6 +95,7 @@ const server = http.createServer(async (req, res) => {
     else if (req.method === 'DELETE') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         var parametros = url.parse(req.url, true).query;
+        console.log("DELETE id:" + parametros.id);
         let indiceCliente = verificaClienteId(parametros.id, vetorClientes);
         if(indiceCliente != null) {
             const clienteDeletado = vetorClientes.cliente.splice(indiceCliente,1);
