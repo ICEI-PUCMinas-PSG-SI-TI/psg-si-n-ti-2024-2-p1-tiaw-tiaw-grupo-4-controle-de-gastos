@@ -51,7 +51,7 @@ async function receberInformacoes() {
           "Accept": "application/json",
         }
       }
-    const response = await fetch("http://localhost:3000/?id="+idUsuario, options);
+    const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
     const usuarioJson = await response.json();
     inputNome.value = usuarioJson.nome;
     inputEmail.value = usuarioJson.email;
@@ -69,7 +69,7 @@ async function atualizarNome(){
             nome: nomeUsuario
         })
       }
-    const response = await fetch("http://localhost:3000/", options);
+    const response = await fetch("http://localhost:3000/clientes/", options);
     const usuarioJson = await response.json();
     inputNome.value = usuarioJson.nome;
 }
@@ -86,7 +86,7 @@ async function atualizarEmail(){
             email: emailUsuario
         })
       }
-    const response = await fetch("http://localhost:3000/", options);
+    const response = await fetch("http://localhost:3000/clientes/", options);
     const usuarioJson = await response.json();
     inputEmail.value = usuarioJson.email;
 }

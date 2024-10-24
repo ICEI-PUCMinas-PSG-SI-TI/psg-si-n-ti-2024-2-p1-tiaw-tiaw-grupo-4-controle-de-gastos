@@ -36,7 +36,7 @@ async function receberCadastro() {
         pw_hash: senhaHash,
       })
     }
-    fetch("http://localhost:3000/", options)
+    fetch("http://localhost:3000/clientes/", options)
       .catch((error) => console.error(error));
   }
 }

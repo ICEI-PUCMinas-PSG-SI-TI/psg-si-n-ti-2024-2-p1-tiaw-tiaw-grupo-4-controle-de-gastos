@@ -7,12 +7,12 @@ const server = http.createServer(async (req, res) => {
     res.setHeader("Access-Control-Allow-Headers","*");
     res.setHeader("Access-Control-Allow-Methods","*");
     const vetorClientes = await carregaClientes();
-    if (req.url === "/" && req.method === 'OPTIONS') {
+    if (req.url.startsWith('/clientes/') && req.method === 'OPTIONS') {
         console.log(req.method);
         res.writeHead(200, { "Content-Type": "text/plain" });
         res.end("OPTIONS ok");
     }  
-    else if (req.url === "/" && req.method === 'POST') {
+    else if (req.url.startsWith('/clientes/') && req.method === 'POST') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         console.log(req.method);
         let body = '';
@@ -30,10 +30,10 @@ const server = http.createServer(async (req, res) => {
             else res.end("Já existe outra conta com este email");
         });
     }  
-    else if (req.method === 'GET') {
+    else if (req.url.startsWith('/clientes/') && req.method === 'GET') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         let parametros = url.parse(req.url, true).query;
-        if(req.url === "/") {
+        if(!parametros.id) {
             console.log("GET ALL");
             res.end(JSON.stringify(vetorClientes.cliente, null, "\t"));
         }
@@ -46,7 +46,7 @@ const server = http.createServer(async (req, res) => {
             else res.end("Usuário não encontrado");
         }
     }
-    else if (req.url === "/" && req.method === 'PUT') {
+    else if (req.url.startsWith('/clientes/') && req.method === 'PUT') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         let body = '';
         req.on('data', buffer => {
@@ -92,7 +92,7 @@ const server = http.createServer(async (req, res) => {
             else res.end("id não foi informado");
         });
     }
-    else if (req.method === 'DELETE') {
+    else if (req.url.startsWith('/clientes/') && req.method === 'DELETE') {
         res.writeHead(200, { "Content-Type": "text/plain" });
         var parametros = url.parse(req.url, true).query;
         console.log("DELETE id:" + parametros.id);
