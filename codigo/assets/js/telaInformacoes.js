@@ -27,6 +27,11 @@ botaoLogout.addEventListener("click", fazerLogout);
 let botaoDeletar = document.getElementById("btnDeletar");
 botaoDeletar.addEventListener("click", deletarConta);
 
+let botaoSenha = document.getElementById("botaoSenha");
+let inputSenha = document.getElementById("inputSenha");
+let inputConfSenha = document.getElementById("inputConfSenha");
+botaoSenha.addEventListener("click", editarSenha);
+
 
 receberInformacoes();
 
@@ -58,6 +63,30 @@ async function deletarConta(){
             alert("Houve um erro");
             location.replace("login.html");
         }
+    }
+}
+
+function editarSenha(){
+    if (inputSenha.hasAttribute('readonly')) {
+        inputSenha.removeAttribute('readonly');
+        inputConfSenha.removeAttribute('readonly');
+        inputSenha.style.visibility= 'visible';
+        inputConfSenha.style.visibility= 'visible';
+        botaoSenha.innerHTML = "Salvar";
+        botaoSenha.style.backgroundColor = "#49CB8F";
+        inputSenha.style.backgroundColor = "#FFFFFF";
+        inputConfSenha.style.backgroundColor = "#FFFFFF";
+        botaoSenha.style.transition = "all 0.1s";
+    } else {
+        inputSenha.setAttribute('readonly', 'readonly');
+        inputConfSenha.setAttribute('readonly', 'readonly');
+        inputSenha.style.visibility='hidden';
+        inputConfSenha.style.visibility='hidden' 
+        botaoSenha.innerHTML = "Editar senha";
+        botaoSenha.style.backgroundColor = "#7908e2";
+        inputSenha.style.backgroundColor = "#D3D3D3";
+        inputConfSenha.style.backgroundColor = "#D3D3D3";
+        atualizarSenha();
     }
 }
 
@@ -113,6 +142,39 @@ async function receberInformacoes() {
     }
 }
 
+async function atualizarSenha(){
+    inputSenha = document.getElementById("inputSenha");
+    inputConfSenha = document.getElementById("inputConfSenha");
+    if(inputSenha.value !== inputConfSenha.value){
+        alert("As senhas não são iguais!");
+    }
+    else if(inputSenha.value === "" || inputConfSenha.value === "") {
+        alert("Os campos não podem estar vazios");
+    }
+    else {
+        let senhaHash = await digestMessage(inputSenha.value);
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: idUsuario,
+                pw_hash: senhaHash
+            })
+        }
+        try{
+            const response = await fetch("http://localhost:3000/clientes/", options);
+            const usuarioJson = await response.json();
+            alert("Senha atualizada com sucesso");
+        }
+        catch(err){
+            console.log(err);
+            alert("Houve um erro");
+        }
+    }
+}
+
 async function atualizarNome(){
     let nomeUsuario = document.getElementById("inputNome").value
     const options = {
@@ -149,3 +211,13 @@ async function atualizarEmail(){
     }
     inputEmail.value = usuarioJson.email;
 }
+
+async function digestMessage(message) {
+    // função de hashing obtida de developer.mozilla.org
+    const msgUint8 = new TextEncoder().encode(message); // codifica a entrada como (utf-8) Uint8Array
+    const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgUint8); // transforma em hash
+    const hashArray = Array.from(new Uint8Array(hashBuffer)); // converte buffer para byte array
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join(""); // converte bytes para string de hexadecimais
+    return hashHex;
+  }
+  
