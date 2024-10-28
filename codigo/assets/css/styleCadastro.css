@@ -50,7 +50,7 @@ input, input[type="text"] {
   box-sizing: unset;
 }
 
-#btnCadastrar {
+.btnConfirmar {
   margin-top: 2%;
   background-color: #3f225f;
   color: white;

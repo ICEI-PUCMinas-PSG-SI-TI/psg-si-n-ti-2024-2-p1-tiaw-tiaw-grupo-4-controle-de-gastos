@@ -36,8 +36,18 @@ async function receberCadastro() {
         pw_hash: senhaHash,
       })
     }
-    fetch("http://localhost:3000/clientes/", options)
-      .catch((error) => console.error(error));
+    let response = await fetch("http://localhost:3000/clientes/", options);
+    let responseText = await response.text();
+    try{
+      let responseJSON = JSON.parse(responseText);
+      if(typeof(responseJSON) === "object" && responseJSON !== null){
+        alert("Conta criada com sucesso!");
+      }
+      location.replace("login.html");
+    }
+    catch(err){
+      alert("Email já em uso");
+    }
   }
 }
 

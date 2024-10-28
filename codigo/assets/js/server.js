@@ -25,7 +25,7 @@ const server = http.createServer(async (req, res) => {
             if(verificaClienteEmail(novoCliente.email,vetorClientes) == null) {
                 vetorClientes.cliente.push(novoCliente);
                 atualizarArquivo(vetorClientes);
-                res.end("Cliente inserido com sucesso"); 
+                res.end(JSON.stringify(novoCliente)); 
             }
             else res.end("Já existe outra conta com este email");
         });
@@ -158,12 +158,11 @@ function gerarId(vetorClientes) {
 
 async function carregaClientes() {
     return new Promise((resolve,reject) => {
-        fs.readFile('../json/clientes.json', "utf8", (error, data) => {
+        fs.readFile('./codigo/assets/json/clientes.json', "utf8", (error, data) => {
             if (error) {
               reject(error);
             }
             const objClientes = JSON.parse(data);
-    
             if (Array.isArray(objClientes.cliente)) {
                 resolve(objClientes);
             }
@@ -174,7 +173,7 @@ async function carregaClientes() {
 
 async function atualizarArquivo(vetorClientes) {
     return new Promise((resolve,reject) => {
-        fs.writeFile('../json/clientes.json', JSON.stringify(vetorClientes, null, "\t"), 'utf8', err => {
+        fs.writeFile('./codigo/assets/json/clientes.json', JSON.stringify(vetorClientes, null, "\t"), "utf8", err => {
             if (err) {
               console.error("Erro ao atualizar o arquivo");
             } else {

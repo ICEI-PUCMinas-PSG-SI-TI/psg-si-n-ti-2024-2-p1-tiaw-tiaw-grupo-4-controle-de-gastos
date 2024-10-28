@@ -1,3 +1,10 @@
+let usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+let usuarioCorrente = {};
+if (usuarioCorrenteJSON) {
+    usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
+}
+let idUsuario = usuarioCorrente.id; 
+
 let inputNome = document.getElementById("inputNome");
 let inputEmail = document.getElementById("inputEmail");
 
@@ -7,7 +14,6 @@ botaoEditarNome.addEventListener("click", editarNome);
 let botaoEditarEmail = document.getElementById("botaoEmail");
 botaoEditarEmail.addEventListener("click", editarEmail);
 
-let idUsuario = 0; // deveremos receber o id do usuário através do sistema de login
 
 receberInformacoes();
 
@@ -22,7 +28,7 @@ function editarNome() {
     } else {
         inputNome.setAttribute('readonly', 'readonly');
         botaoEditarNome.innerHTML = "Editar nome";
-        botaoEditarNome.style.backgroundColor = "#3f225f";
+        botaoEditarNome.style.backgroundColor = "#7908e2";
         inputNome.style.backgroundColor = "#D3D3D3";
         atualizarNome();
     }
@@ -38,7 +44,7 @@ function editarEmail() {
     } else {
         inputEmail.setAttribute('readonly', 'readonly');
         botaoEditarEmail.innerHTML = "Editar email";
-        botaoEditarEmail.style.backgroundColor = "#3f225f";
+        botaoEditarEmail.style.backgroundColor = "#7908e2";
         inputEmail.style.backgroundColor = "#D3D3D3";
         atualizarEmail();
     }
@@ -51,10 +57,17 @@ async function receberInformacoes() {
           "Accept": "application/json",
         }
       }
-    const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
-    const usuarioJson = await response.json();
-    inputNome.value = usuarioJson.nome;
-    inputEmail.value = usuarioJson.email;
+    try {
+        const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
+        const usuarioJson = await response.json();
+        inputNome.value = usuarioJson.nome;
+        inputEmail.value = usuarioJson.email;
+    }
+    catch(err){
+        console.log(err);
+        alert("Sessão invalida, faça o login");
+        location.replace("login.html");
+    }
 }
 
 async function atualizarNome(){
@@ -88,5 +101,8 @@ async function atualizarEmail(){
       }
     const response = await fetch("http://localhost:3000/clientes/", options);
     const usuarioJson = await response.json();
+    if(emailUsuario != usuarioJson.email) {
+        alert("Email já em uso");
+    }
     inputEmail.value = usuarioJson.email;
 }
