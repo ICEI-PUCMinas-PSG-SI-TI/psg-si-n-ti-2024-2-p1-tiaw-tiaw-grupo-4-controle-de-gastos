@@ -210,6 +210,8 @@ async function atualizarEmail(){
         alert("Email já em uso");
     }
     inputEmail.value = usuarioJson.email;
+    usuarioCorrente.email = usuarioJson.email;
+    sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
 }
 
 async function digestMessage(message) {
