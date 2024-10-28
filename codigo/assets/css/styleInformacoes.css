@@ -9,6 +9,7 @@
     margin-right: 20%;
     border-radius: 50px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .textoUsuario {
@@ -25,6 +26,38 @@
     margin-left: 3%;
     width: 40%;
 }
+.secaoBotoes {
+    margin-top: 25%;
+    width: 100%;
+}
+
+#btnLogout {
+    margin-left: 3%;
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btnDeletar {
+    margin-left: 70%;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
 .btnEditar {
     margin-top: 5px;
@@ -39,7 +72,11 @@
     text-align: center;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
+@media (max-width: 1152px) {
+    #btnDeletar {
+        margin-left: 50%;
+    }
+}
 @media (max-width: 900px) {
     #fundoUsuario {
         width: 60%;
@@ -49,7 +86,15 @@
         width:400px;
     }
 }
+@media (max-width: 723px) {
+    #btnDeletar {
+        margin-left: 40%;
+    }
+}
 @media (max-width: 650px) {
+    #btnDeletar {
+        margin-left: 30%;
+    }
     #fundoUsuario {
         width: 50%;
     }
@@ -57,7 +102,16 @@
         width:250%;
     }
 }
-@media (max-width: 430px) {
+@media (max-width: 611px) {
+    #btnDeletar {
+        margin-left: 10%;
+    }
+}
+@media (max-width: 475px) {
+    #btnDeletar {
+        margin-top: 1%;
+        margin-left: 3%;
+    }
     #fundoUsuario {
         width: 45%;
     }

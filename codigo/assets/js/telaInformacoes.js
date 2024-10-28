@@ -1,9 +1,16 @@
 let usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
 let usuarioCorrente = {};
+let idUsuario;
 if (usuarioCorrenteJSON) {
     usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
+} 
+if(usuarioCorrente != null){
+    idUsuario = usuarioCorrente.id; 
 }
-let idUsuario = usuarioCorrente.id; 
+else {
+    alert("Sessão invalida, faça o login");
+    location.replace("login.html");
+}
 
 let inputNome = document.getElementById("inputNome");
 let inputEmail = document.getElementById("inputEmail");
@@ -14,9 +21,45 @@ botaoEditarNome.addEventListener("click", editarNome);
 let botaoEditarEmail = document.getElementById("botaoEmail");
 botaoEditarEmail.addEventListener("click", editarEmail);
 
+let botaoLogout = document.getElementById("btnLogout");
+botaoLogout.addEventListener("click", fazerLogout);
+
+let botaoDeletar = document.getElementById("btnDeletar");
+botaoDeletar.addEventListener("click", deletarConta);
+
 
 receberInformacoes();
 
+
+function fazerLogout(){
+    sessionStorage.setItem('usuarioCorrente', null);
+    alert("Logout bem sucedido");
+    location.replace("login.html");
+}
+
+async function deletarConta(){
+    if(confirm("Tem certeza que deseja deletar a conta? Esta ação não pode ser desfeita")){
+        const options = {
+            method: "DELETE",
+            headers: {
+              "Accept": "application/json",
+            }
+          }
+        try {
+            sessionStorage.setItem('usuarioCorrente', null);
+            const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
+            const usuarioJson = await response.json();
+            console.log(usuarioJson);
+            alert("Conta deletada com sucesso");
+            location.replace("login.html");
+        }
+        catch(err){
+            console.log(err);
+            alert("Houve um erro");
+            location.replace("login.html");
+        }
+    }
+}
 
 function editarNome() {
     if (inputNome.hasAttribute('readonly')) {
