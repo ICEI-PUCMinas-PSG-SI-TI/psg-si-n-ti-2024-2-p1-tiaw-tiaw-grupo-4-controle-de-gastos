@@ -87,6 +87,11 @@ input, input[type="text"] {
   background-repeat: no-repeat;
 }
 
+a {
+  color: #551A8B;
+  text-decoration: none;
+}
+
 @media (max-width: 1250px) {
   .mainCadastro {
     width: 100%;
