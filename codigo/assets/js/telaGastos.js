@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         location.replace("login.html");
     }
     
-    let usuarioJson=receberUsuario()
+    let usuarioJson = receberUsuario();
     // Função para salvar os dados no localStorage
     function salvarGasto() {
         const titulo = document.querySelector('input[placeholder="Título"]').value;
