@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/TIAW/codigo/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/styleGastos.css">
+    <script src="../assets/js/telaGastos.js" defer></script>
     <title>Incluir Gastos</title>
 </head>
 <body>
@@ -37,18 +38,15 @@
 
     <div class="telaIncluir">
         <input class="entradaGastos" placeholder="Título" required>
-        </input>
         <input class="entradaGastos" placeholder="Categoria" required>
-        </input>
         <input class="entradaGastos" placeholder="Valor" required>
-        </input>
         <br>
         <h2 class="tituloData">Data do gasto</h2>
         <input class="entradaGastosData" type="date" name="tempo" required>
         <br>
         <section class="radio-section">
             <div class="radio-list">
-                <h1>Qual a recorrência do gastos?</h1>
+                <h1>Qual a recorrência do gasto?</h1>
                 <div class="radio-item">
                     <input name="radio" id="radio1" type="radio">
                     <label for="radio1">Individual</label>
@@ -67,10 +65,11 @@
                 </div>
             </div>
         </section>
-        <button id="botaoSalvar">
-            Salvar
-        </button>
-
+        <button id="botaoSalvar">Salvar</button>
     </div>
+    
+    <!-- Adiciona a lista de gastos aqui -->
+    <ul class="lista-gastos"></ul>
+
 </body>
 </html>
