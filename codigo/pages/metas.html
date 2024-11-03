@@ -37,22 +37,11 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <div>
         <h1 class="principal">Metas</h1>
         <button class="criar-meta" onclick="openModal()">Criar Meta</button>
-        <div class="cards-container">
-            <div class="card meta-card">
-                <h2>Meta 1</h2>
-                <p>Descrição da meta 1.</p>
-            </div>
-            <div class="card meta-card">
-                <h2>Meta 2</h2>
-                <p>Descrição da meta 2.</p>
-            </div>
-            <div class="card meta-card">
-                <h2>Meta 3</h2>
-                <p>Descrição da meta 3.</p>
-            </div>
+        <div class="cards-container" id="cards-container">
+
         </div>
     </div>
 
@@ -79,23 +68,56 @@
     </div>
 
     <script>
-
         function openModal() {
             document.getElementById('modal').style.display = 'block';
         }
 
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (event.target === document.getElementById('modal')) {
                 document.getElementById('modal').style.display = 'none';
             }
-        }
+        };
 
-
-        document.getElementById('metaForm').onsubmit = function (event) {
+        document.getElementById('metaForm').onsubmit = function(event) {
             event.preventDefault();
             console.log("Meta adicionada");
             document.getElementById('modal').style.display = 'none';
+        };
+
+        // Função para criar cards a partir do JSON carregado
+        function createMetaCards(data) {
+            const container = document.getElementById('cards-container');
+            data.cliente.forEach(cliente => {
+                cliente.metas.forEach(meta => {
+                    const card = document.createElement('div');
+                    card.classList.add('card', 'meta-card');
+
+                    const title = document.createElement('h2');
+                    title.textContent = meta.titulo;
+
+                    const description = document.createElement('p');
+                    description.textContent = meta.descricao;
+
+                    const valor = document.createElement('p');
+                    valor.textContent = `Valor: R$${meta.valor}`;
+
+                    const tempo = document.createElement('p');
+                    tempo.textContent = `Prazo: ${new Date(meta.tempo).toLocaleDateString('pt-BR')}`;
+
+                    card.appendChild(title);
+                    card.appendChild(description);
+                    card.appendChild(valor);
+                    card.appendChild(tempo);
+
+                    container.appendChild(card);
+                });
+            });
         }
+
+        fetch('/assets/json/clientes.json')
+            .then(response => response.json())
+            .then(data => createMetaCards(data))
+            .catch(error => console.error('Erro ao carregar o JSON:', error));
     </script>
 </body>
 
