@@ -1,28 +1,128 @@
+let usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+let usuarioCorrente = {};
+let idUsuario;
+if (usuarioCorrenteJSON) {
+    usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
+} 
+if(usuarioCorrente != null){
+    idUsuario = usuarioCorrente.id; 
+}
+else {
+    alert("Sessão invalida, faça o login");
+    location.replace("login.html");
+}
 
-document.addEventListener("DOMContentLoaded", async function() {
-    setInputFilter(document.querySelector('input[placeholder="Valor"]'), function(value) {
-        return /^-?\d*[.,]?\d{0,2}$/.test(value); }); // garante que o campo VALOR só aceite números com 2 casas decimais
-    let usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
-    let usuarioCorrente = {};
-    let idUsuario;
-    if (usuarioCorrenteJSON) {
-        usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
-    } 
-    if(usuarioCorrente != null) {
-        idUsuario = usuarioCorrente.id; 
-    }
-    else {
-       alert("Sessão invalida, faça o login");
-       location.replace("login.html");
-    }
-    let usuarioJson = await receberUsuario(idUsuario);
-    let botaoSalvar = document.getElementById("botaoSalvar");
-    botaoSalvar.addEventListener("click", () => {
-        salvarGasto(usuarioJson);
-    });
-});
+let inputNome = document.getElementById("inputNome");
+let inputEmail = document.getElementById("inputEmail");
 
-async function receberUsuario(idUsuario) {
+let botaoEditarNome = document.getElementById("botaoNome");
+botaoEditarNome.addEventListener("click", editarNome);
+
+let botaoEditarEmail = document.getElementById("botaoEmail");
+botaoEditarEmail.addEventListener("click", editarEmail);
+
+let botaoLogout = document.getElementById("btnLogout");
+botaoLogout.addEventListener("click", fazerLogout);
+
+let botaoDeletar = document.getElementById("btnDeletar");
+botaoDeletar.addEventListener("click", deletarConta);
+
+let botaoSenha = document.getElementById("botaoSenha");
+let inputSenha = document.getElementById("inputSenha");
+let inputConfSenha = document.getElementById("inputConfSenha");
+botaoSenha.addEventListener("click", editarSenha);
+
+
+receberInformacoes();
+
+
+function fazerLogout(){
+    sessionStorage.setItem('usuarioCorrente', null);
+    alert("Logout bem sucedido");
+    location.replace("login.html");
+}
+
+async function deletarConta(){
+    if(confirm("Tem certeza que deseja deletar a conta? Esta ação não pode ser desfeita")){
+        const options = {
+            method: "DELETE",
+            headers: {
+              "Accept": "application/json",
+            }
+          }
+        try {
+            sessionStorage.setItem('usuarioCorrente', null);
+            const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
+            const usuarioJson = await response.json();
+            console.log(usuarioJson);
+            alert("Conta deletada com sucesso");
+            location.replace("login.html");
+        }
+        catch(err){
+            console.log(err);
+            alert("Houve um erro");
+            location.replace("login.html");
+        }
+    }
+}
+
+function editarSenha(){
+    if (inputSenha.hasAttribute('readonly')) {
+        inputSenha.removeAttribute('readonly');
+        inputConfSenha.removeAttribute('readonly');
+        inputSenha.style.visibility= 'visible';
+        inputConfSenha.style.visibility= 'visible';
+        botaoSenha.innerHTML = "Salvar";
+        botaoSenha.style.backgroundColor = "#49CB8F";
+        inputSenha.style.backgroundColor = "#FFFFFF";
+        inputConfSenha.style.backgroundColor = "#FFFFFF";
+        botaoSenha.style.transition = "all 0.1s";
+    } else {
+        inputSenha.setAttribute('readonly', 'readonly');
+        inputConfSenha.setAttribute('readonly', 'readonly');
+        inputSenha.style.visibility='hidden';
+        inputConfSenha.style.visibility='hidden' 
+        botaoSenha.innerHTML = "Editar senha";
+        botaoSenha.style.backgroundColor = "#7908e2";
+        inputSenha.style.backgroundColor = "#D3D3D3";
+        inputConfSenha.style.backgroundColor = "#D3D3D3";
+        atualizarSenha();
+    }
+}
+
+function editarNome() {
+    if (inputNome.hasAttribute('readonly')) {
+        inputNome.removeAttribute('readonly');
+        botaoEditarNome.innerHTML = "Salvar";
+        botaoEditarNome.style.backgroundColor = "#49CB8F";
+        inputNome.style.backgroundColor = "#FFFFFF";
+        botaoEditarNome.style.transition = "all 0.1s";
+    } else {
+        inputNome.setAttribute('readonly', 'readonly');
+        botaoEditarNome.innerHTML = "Editar nome";
+        botaoEditarNome.style.backgroundColor = "#7908e2";
+        inputNome.style.backgroundColor = "#D3D3D3";
+        atualizarNome();
+    }
+}
+
+function editarEmail() {
+    if (inputEmail.hasAttribute('readonly')) {
+        inputEmail.removeAttribute('readonly');
+        botaoEditarEmail.innerHTML = "Salvar";
+        botaoEditarEmail.style.backgroundColor = "#49CB8F";
+        inputEmail.style.backgroundColor = "#FFFFFF";
+        botaoEditarEmail.style.transition = "all 0.1s";
+    } else {
+        inputEmail.setAttribute('readonly', 'readonly');
+        botaoEditarEmail.innerHTML = "Editar email";
+        botaoEditarEmail.style.backgroundColor = "#7908e2";
+        inputEmail.style.backgroundColor = "#D3D3D3";
+        atualizarEmail();
+    }
+}
+
+async function receberInformacoes() {
     const options = {
         method: "GET",
         headers: {
@@ -32,7 +132,8 @@ async function receberUsuario(idUsuario) {
     try {
         const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
         const usuarioJson = await response.json();
-        return usuarioJson;
+        inputNome.value = usuarioJson.nome;
+        inputEmail.value = usuarioJson.email;
     }
     catch(err){
         console.log(err);
@@ -41,7 +142,41 @@ async function receberUsuario(idUsuario) {
     }
 }
 
-async function atualizarGastos(gastos, idUsuario) {
+async function atualizarSenha(){
+    inputSenha = document.getElementById("inputSenha");
+    inputConfSenha = document.getElementById("inputConfSenha");
+    if(inputSenha.value !== inputConfSenha.value){
+        alert("As senhas não são iguais!");
+    }
+    else if(inputSenha.value === "" || inputConfSenha.value === "") {
+        alert("Os campos não podem estar vazios");
+    }
+    else {
+        let senhaHash = await digestMessage(inputSenha.value);
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: idUsuario,
+                pw_hash: senhaHash
+            })
+        }
+        try{
+            const response = await fetch("http://localhost:3000/clientes/", options);
+            const usuarioJson = await response.json();
+            alert("Senha atualizada com sucesso");
+        }
+        catch(err){
+            console.log(err);
+            alert("Houve um erro");
+        }
+    }
+}
+
+async function atualizarNome(){
+    let nomeUsuario = document.getElementById("inputNome").value
     const options = {
         method: "PUT",
         headers: {
@@ -49,82 +184,42 @@ async function atualizarGastos(gastos, idUsuario) {
         },
         body: JSON.stringify({
             id: idUsuario,
-            gastos: gastos
+            nome: nomeUsuario
         })
+      }
+    const response = await fetch("http://localhost:3000/clientes/", options);
+    const usuarioJson = await response.json();
+    inputNome.value = usuarioJson.nome;
+}
+
+async function atualizarEmail(){
+    let emailUsuario = document.getElementById("inputEmail").value
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id: idUsuario,
+            email: emailUsuario
+        })
+      }
+    const response = await fetch("http://localhost:3000/clientes/", options);
+    const usuarioJson = await response.json();
+    if(emailUsuario != usuarioJson.email) {
+        alert("Email já em uso");
     }
-    try{
-        const response = await fetch("http://localhost:3000/clientes/", options);
-        alert("Gasto inserido com sucesso");
-    }
-    catch(err){
-        console.log(err);
-        alert("Houve um erro");
-    }    
+    inputEmail.value = usuarioJson.email;
+    usuarioCorrente.email = usuarioJson.email;
+    sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
 }
 
-async function salvarGasto(usuarioJson) {
-    let titulo = document.querySelector('input[placeholder="Título"]').value;
-    let categoria = document.querySelector('input[placeholder="Categoria"]').value;
-    let valor = document.querySelector('input[placeholder="Valor"]').value;
-    let data = document.querySelector('input[type="date"]').value;
-    let recorrencia = document.querySelector('input[name="radio"]:checked')?.nextElementSibling.textContent;  
-
-    if (!titulo || !categoria || !valor || !data || !recorrencia) {
-        alert("Por favor, preencha todos os campos!");
-    }
-    else {
-        let id = generateUUID();
-        const novoGasto = { id, titulo, categoria, valor, data, recorrencia}; 
-        let gastos = usuarioJson.gastos;
-        if(gastos === undefined){
-            gastos = [];
-        }
-        gastos.push(novoGasto);
-        await atualizarGastos(gastos, usuarioJson.id);    
-    }    
-    limparCampos(); // Limpa os campos após salvar
-}
-
-function limparCampos() {
-    document.querySelector('input[placeholder="Título"]').value = "";
-    document.querySelector('input[placeholder="Categoria"]').value = "";
-    document.querySelector('input[placeholder="Valor"]').value = "";
-    document.querySelector('input[type="date"]').value = "";
-    document.querySelector('input[name="radio"]:checked').checked = false;
-}
-
-// Fonte: https://stackoverflow.com/questions/105034/how-to-create-guid-uuid
-function generateUUID() { // Public Domain/MIT
-    var d = new Date().getTime();//Timestamp
-    var d2 = (performance && performance.now && (performance.now()*1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16;//random number between 0 and 16
-        if(d > 0){//Use timestamp until depleted
-            r = (d + r)%16 | 0;
-            d = Math.floor(d/16);
-        } else {//Use microseconds since page-load if supported
-            r = (d2 + r)%16 | 0;
-            d2 = Math.floor(d2/16);
-        }
-        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-}
-
-
-function setInputFilter(textbox, inputFilter) { // função que garante que o campo VALOR só aceite números com 2 casas decimais
-    ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
-      textbox.addEventListener(event, function() {
-        if (inputFilter(this.value)) {
-          this.oldValue = this.value;
-          this.oldSelectionStart = this.selectionStart;
-          this.oldSelectionEnd = this.selectionEnd;
-        } else if (this.hasOwnProperty("oldValue")) {
-          this.value = this.oldValue;
-          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-        } else {
-          this.value = "";
-        }
-      });
-    });
+async function digestMessage(message) {
+    // função de hashing obtida de developer.mozilla.org
+    const msgUint8 = new TextEncoder().encode(message); // codifica a entrada como (utf-8) Uint8Array
+    const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgUint8); // transforma em hash
+    const hashArray = Array.from(new Uint8Array(hashBuffer)); // converte buffer para byte array
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join(""); // converte bytes para string de hexadecimais
+    return hashHex;
   }
   
