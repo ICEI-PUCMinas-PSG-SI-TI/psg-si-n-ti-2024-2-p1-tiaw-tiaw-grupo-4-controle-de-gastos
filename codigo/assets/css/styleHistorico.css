@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5EAFF; 
+    line-height: 1.6;
+    height: 100%; 
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #FFFFFF; 
+    width: 60px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 60px;
+    margin-bottom: 50px;
+}
+
+.logo img {
+    width: 100%;         /* A largura da imagem será 100% do contêiner */
+    max-width: 60px;     /* Limita a largura máxima */
+    height: auto;        /* Mantém a proporção da imagem */
+    display: block;
+    margin: 0 auto;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #3F225F;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu ul li a .icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.main-content {
+    flex-grow: 1;
+    background-color: #F5EAFF; 
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.main-content h1 {
+    text-align: center;
+    color: #3F225F; 
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.chart {
+    width: 100%; 
+    height: 600px; 
+    background-color: transparent; 
+    border-radius: 15px;
+    margin: 0 auto 40px auto; 
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100%;
+    max-width: none;
+    border-radius: 15px;
+}
+
+.buttons {
+    text-align: right;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px; 
+    padding-right: 20px; 
+}
+
+button {
+    background-color: #3F225F; 
+    color: white;
+    border: none;
+    padding: 15px 30px; 
+    border-radius: 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+button:hover {
+    background-color: #33204A; 
+}
+
+.chart-legend {
+    margin-top: 2cm; 
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .chart {
+        width: 100%; 
+        height: 300px; 
+        margin-bottom: 200px; 
+    }
+}
+
+@media (min-width: 769px) {
+    .chart {
+        width: 80%; 
+    }
+}
