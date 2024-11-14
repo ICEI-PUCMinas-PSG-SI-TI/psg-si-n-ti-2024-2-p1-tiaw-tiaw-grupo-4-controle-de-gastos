@@ -34,7 +34,7 @@ window.addEventListener("load", async () => {
         </tr>`;
     }
     if(vetorClientes.length >= 9){
-        for(let i = 0; i < vetorClientes.length / 10; i++){
+        for(let i = 0; i < Math.ceil(vetorClientes.length / 9); i++){
             tabelaUsuarios.innerHTML +=
             `
             <button id="${i}" class="btnPagina">${i+1}</button>
@@ -62,7 +62,6 @@ window.addEventListener("load", async () => {
 })
 
 async function trocarPagina(btn) {
-    console.log(btn.id);
     const options = {
         method: "GET",
         headers: {
@@ -80,7 +79,7 @@ async function trocarPagina(btn) {
                     <th>Opções</th>
                 </tr>`;
 
-    for(let i = btn.id*9, j = 0; j < 9 && i < vetorClientes.length; i++, j++){
+    for(let i = btn.id*9; i < btn.id*9+9 && i < vetorClientes.length; i++){
         let isAdmin = "Não";
         if(vetorClientes[i].admin == true) {
             isAdmin = "Sim";
@@ -96,7 +95,7 @@ async function trocarPagina(btn) {
             </td>
         </tr>`;
     }
-    for(let i = 0; i < vetorClientes.length / 10; i++){
+    for(let i = 0; i < Math.ceil(vetorClientes.length / 9); i++){
         tabelaUsuarios.innerHTML +=
         `
         <button id="${i}" class="btnPagina">${i+1}</button>
@@ -150,8 +149,6 @@ async function editarUsuario(btn){
     receberInformacoes(idUsuario);
 
     btnVoltar.addEventListener("click",()=>{
-        modalUsuario.style.display = "none";
-        telaPadrao.style.display = "block";
         location.reload();
     })
 }
