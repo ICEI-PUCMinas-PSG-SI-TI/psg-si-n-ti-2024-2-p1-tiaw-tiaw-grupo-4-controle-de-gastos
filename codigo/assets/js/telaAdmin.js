@@ -34,7 +34,12 @@ window.addEventListener("load", async () => {
         </tr>`;
     }
     if(vetorClientes.length >= 9){
-        // paginação
+        for(let i = 0; i < vetorClientes.length / 10; i++){
+            tabelaUsuarios.innerHTML +=
+            `
+            <button id="${i}" class="btnPagina">${i+1}</button>
+            `
+        }
     }
     let btnsEditar = document.querySelectorAll(".btnEditarUsuario");
     btnsEditar.forEach(btn => {
@@ -48,7 +53,75 @@ window.addEventListener("load", async () => {
             deletarUsuario(btn);
         });
     });
+    let btnsPagina = document.querySelectorAll(".btnPagina");
+    btnsPagina.forEach(btn => {
+        btn.addEventListener('click', () => {
+            trocarPagina(btn);
+        })
+    })
 })
+
+async function trocarPagina(btn) {
+    console.log(btn.id);
+    const options = {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+        }
+    }
+    const response = await fetch("http://localhost:3000/clientes/", options);
+    const vetorClientes = await response.json();
+
+    let tabelaUsuarios = document.getElementById("tabelaUsuarios");
+    tabelaUsuarios.innerHTML = `<tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Opções</th>
+                </tr>`;
+
+    for(let i = btn.id*9, j = 0; j < 9 && i < vetorClientes.length; i++, j++){
+        let isAdmin = "Não";
+        if(vetorClientes[i].admin == true) {
+            isAdmin = "Sim";
+        }
+        tabelaUsuarios.innerHTML += 
+        `<tr id="${vetorClientes[i].id}">
+            <td>${vetorClientes[i].nome}</td>
+            <td>${vetorClientes[i].email}</td>
+            <td>${isAdmin}</td>
+            <td>
+                <button class="btnEditarUsuario">Editar</button>
+                <button class="btnDeletar">Deletar</button>
+            </td>
+        </tr>`;
+    }
+    for(let i = 0; i < vetorClientes.length / 10; i++){
+        tabelaUsuarios.innerHTML +=
+        `
+        <button id="${i}" class="btnPagina">${i+1}</button>
+        `
+    }
+    let btnsPagina = document.querySelectorAll(".btnPagina");
+    btnsPagina.forEach(btn => {
+        btn.addEventListener('click', () => {
+            trocarPagina(btn);
+        })
+    });
+    let btnsEditar = document.querySelectorAll(".btnEditarUsuario");
+    btnsEditar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            editarUsuario(btn);
+        });
+    });
+    let btnsDeletar = document.querySelectorAll(".btnDeletar");
+    btnsDeletar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            deletarUsuario(btn);
+        });
+    });
+}
+
 async function editarUsuario(btn){
     let idUsuario = btn.parentElement.parentElement.id;
     let telaPadrao = document.getElementById("telaPadrao");

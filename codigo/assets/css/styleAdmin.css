@@ -96,3 +96,6 @@ tbody:nth-child(even) {
 .inputSenhas {
     visibility: hidden;
 }
+.btnPagina {
+    padding: 0px 10px;
+}
