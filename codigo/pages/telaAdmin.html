@@ -9,15 +9,38 @@
 </head>
 <body>
     <div id="fundoUsuario">
-        <h1>Usuários</h1>
-        <table id="tabelaUsuarios">
-            <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Admin</th>
-                <th>Opções</th>
-            </tr>
-        </table>
+        <div id="telaPadrao">
+            <h1>Usuários</h1>
+            <table id="tabelaUsuarios">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Opções</th>
+                </tr>
+            </table>
+        </div>
+        <div id="modalUsuario">
+            <div class="secaoInformacao">
+                <h3>Nome</h3>
+                <input id="inputNome" class="textoUsuario" readonly>
+                <button id="botaoNome" class="btnEditar" type="button">Editar nome</button>
+              </div>
+              <div class="secaoInformacao">
+                <h3>Email</h3>
+                <input id="inputEmail" class="textoUsuario" readonly>
+                <button id="botaoEmail" class="btnEditar" type="button">Editar email</button>
+              </div>
+              <div class="secaoInformacao">
+                <h3>Senha</h3>
+                <button id="botaoSenha" class="btnEditar" type="button">Editar senha</button>
+                <input id="inputSenha" class="inputSenhas textoUsuario" type="password" readonly>
+                <input id="inputConfSenha" class="inputSenhas textoUsuario" type="password" readonly>
+              </div>
+              <div>
+                <button id="btnVoltar">Voltar</button>
+              </div>
+        </div>
     </div>
     <script src="../assets/js/telaAdmin.js"></script>
 </body>
