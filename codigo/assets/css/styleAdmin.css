@@ -99,3 +99,19 @@ tbody:nth-child(even) {
 .btnPagina {
     padding: 0px 10px;
 }
+
+@media (max-width: 938px){
+    #fundoUsuario {
+        height: 100%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 660px){
+    #fundoUsuario {
+        width:80%;
+        margin-left: 2%;
+        margin-right: 2%;
+        padding: 50px;
+    }
+}
