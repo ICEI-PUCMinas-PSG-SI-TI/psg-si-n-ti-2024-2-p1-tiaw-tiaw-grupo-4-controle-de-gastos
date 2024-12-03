@@ -1,0 +1,121 @@
+#fundoUsuario {
+    width: 65%;
+    height: 500px;
+    background-color: white;
+    padding: 70px;
+    color:black;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 20%;
+    border-radius: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.textoUsuario {
+    margin-top: 1%;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    background-color: #D3D3D3;
+}
+.secaoInformacao {
+    margin: 1%;
+    margin-right: 6%;
+    margin-left: 3%;
+    width: 40%;
+}
+.secaoBotoes {
+    margin-top: 5%;
+    width: 100%;
+}
+.inputSenhas {
+    visibility: hidden;
+}
+#btnLogout {
+    margin-left: 3%;
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btnDeletar {
+    margin-left: 70%;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnEditar {
+    margin-top: 5px;
+    padding: 10px 20px;
+    background-color: #7908e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+@media (max-width: 1152px) {
+    #btnDeletar {
+        margin-left: 50%;
+    }
+}
+@media (max-width: 900px) {
+    #fundoUsuario {
+        width: 60%;
+        display: block;
+    }
+    .textoUsuario {
+        width:400px;
+    }
+}
+@media (max-width: 723px) {
+    #btnDeletar {
+        margin-left: 40%;
+    }
+}
+@media (max-width: 650px) {
+    #btnDeletar {
+        margin-left: 30%;
+    }
+    #fundoUsuario {
+        width: 50%;
+    }
+    .textoUsuario {
+        width:250%;
+    }
+}
+@media (max-width: 611px) {
+    #btnDeletar {
+        margin-left: 10%;
+    }
+}
+@media (max-width: 475px) {
+    #btnDeletar {
+        margin-top: 1%;
+        margin-left: 3%;
+    }
+    #fundoUsuario {
+        width: 45%;
+    }
+}

@@ -1,0 +1,117 @@
+#fundoUsuario {
+    width: 65%;
+    height: 600px;
+    background-color: white;
+    padding: 70px;
+    color:black;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 20%;
+    border-radius: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#telaPadrao {
+    width: 100%;
+    display: block;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: none;
+    text-align: center;
+    padding: 8px;
+}
+tbody:nth-child(even) {
+    background-color: #dddddd;
+}
+#btnVoltar {
+    padding: 10px 20px;
+    background-color: #7908e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 95%;
+    margin-top: 2%;
+}
+.btnEditarUsuario {
+    padding: 10px 20px;
+    background-color: #7908e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.btnEditar {
+    padding: 10px 20px;
+    background-color: #7908e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.btnDeletar {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+#modalUsuario{
+    display: none;
+    width: 70%;
+    margin-left: 10%;
+}
+.textoUsuario {
+    margin-top: 1%;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    background-color: #D3D3D3;
+}
+.secaoInformacao {
+    margin: 1%;
+    margin-right: 6%;
+    margin-left: 3%;
+    width: 100%;
+}
+.inputSenhas {
+    visibility: hidden;
+}
+.btnPagina {
+    padding: 0px 10px;
+}
+
+@media (max-width: 938px){
+    #fundoUsuario {
+        height: 100%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 660px){
+    #fundoUsuario {
+        width:80%;
+        margin-left: 2%;
+        margin-right: 2%;
+        padding: 50px;
+    }
+}

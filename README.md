@@ -17,4 +17,4 @@ Este projeto se baseia em um sistema responsável por facilitar e agilizar o ger
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+É necessário que o Node.js esteja instalado na máquina. Ao utilizar o terminal estando na pasta base, basta utilizar o comando "npm start" para hospedar o servidor.
