@@ -9,7 +9,7 @@ if(usuarioCorrente != null){
 }
 else {
     alert("Sessão invalida, faça o login");
-    location.replace("login.html");
+    location.replace("../index.html");
 }
 
 let inputNome = document.getElementById("inputNome");
@@ -39,7 +39,7 @@ receberInformacoes();
 function fazerLogout(){
     sessionStorage.setItem('usuarioCorrente', null);
     alert("Logout bem sucedido");
-    location.replace("login.html");
+    location.replace("../index.html");
 }
 
 async function deletarConta(){
@@ -56,12 +56,12 @@ async function deletarConta(){
             const usuarioJson = await response.json();
             console.log(usuarioJson);
             alert("Conta deletada com sucesso");
-            location.replace("login.html");
+            location.replace("../index.html");
         }
         catch(err){
             console.log(err);
             alert("Houve um erro");
-            location.replace("login.html");
+            location.replace("../index.html");
         }
     }
 }
@@ -138,7 +138,7 @@ async function receberInformacoes() {
     catch(err){
         console.log(err);
         alert("Sessão invalida, faça o login");
-        location.replace("login.html");
+        location.replace("../index.html");
     }
 }
 

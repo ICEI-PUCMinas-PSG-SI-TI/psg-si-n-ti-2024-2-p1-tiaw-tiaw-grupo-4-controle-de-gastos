@@ -43,7 +43,7 @@ async function receberCadastro() {
       if(typeof(responseJSON) === "object" && responseJSON !== null){
         alert("Conta criada com sucesso!");
       }
-      location.replace("login.html");
+      location.replace("../index.html");
     }
     catch(err){
       alert("Email já em uso");
