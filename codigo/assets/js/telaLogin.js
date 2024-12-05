@@ -28,9 +28,9 @@ async function tentarLogar(){
             }
             sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
             if(vetorClientes[i].admin == true){
-                location.replace("telaAdmin.html");
+                location.replace("./pages/telaAdmin.html");
             }
-            else location.replace("gastosMensais.html");
+            else location.replace("./pages/gastosMensais.html");
         }
     }
     if(userValido == false) {

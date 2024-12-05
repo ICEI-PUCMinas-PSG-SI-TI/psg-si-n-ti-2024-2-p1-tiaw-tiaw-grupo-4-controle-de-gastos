@@ -6,7 +6,7 @@ window.addEventListener("load", async () => {
     } 
     if(usuarioCorrente.admin !== true){
         alert("Sessão invalida, faça o login");
-        location.replace("login.html");
+        location.replace("../index.html");
     }
     let tabelaUsuarios = document.getElementById("tabelaUsuarios");
     const options = {
