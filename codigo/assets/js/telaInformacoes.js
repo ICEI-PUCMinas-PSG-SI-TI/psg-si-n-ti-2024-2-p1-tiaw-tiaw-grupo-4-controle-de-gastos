@@ -137,7 +137,7 @@ async function receberInformacoes() {
     }
     catch(err){
         console.log(err);
-        alert("Sessão invalida, faça o login");
+        alert("Houve um erro no acesso ao servidor");
         location.replace("../index.html");
     }
 }

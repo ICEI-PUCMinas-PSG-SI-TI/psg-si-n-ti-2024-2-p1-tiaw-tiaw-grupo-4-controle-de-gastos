@@ -81,6 +81,9 @@ const server = http.createServer(async (req, res) => {
                         if(clienteAlterado.investimentos != null) {
                             vetorClientes.cliente[indiceCliente].investimentos = clienteAlterado.investimentos;
                         }
+                        if(clienteAlterado.saldo != null) {
+                            vetorClientes.cliente[indiceCliente].saldo = clienteAlterado.saldo;
+                        }
                         atualizarArquivo(vetorClientes);
                         res.end(JSON.stringify(clienteAlterado));
                     }

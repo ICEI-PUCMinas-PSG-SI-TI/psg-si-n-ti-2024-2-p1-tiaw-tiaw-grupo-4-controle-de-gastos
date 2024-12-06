@@ -23,9 +23,17 @@
 					"data": "2024-01-01",
 					"valor": 105,
 					"recorrencia": [
-						"INDIVIDUAL",
-						"MENSAL",
-						"ANUAL"
+						"INDIVIDUAL"
+					]
+				},
+				{
+					"id": 2,
+					"titulo": "Teste",
+					"categoria": "Comida",
+					"data": "2024-02-02",
+					"valor": 1005,
+					"recorrencia": [
+						"INDIVIDUAL"
 					]
 				}
 			],
@@ -50,7 +58,8 @@
 						"MENSAL"
 					]
 				}
-			]
+			],
+			"saldo": 1
 		},
 		{
 			"id": 2,
@@ -120,106 +129,6 @@
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
 			"id": 3,
 			"admin": true,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 4,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 5,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 6,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 7,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 8,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 9,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 10,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "teste",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 11,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "testeY",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 12,
-			"idContaConjunta": null,
-			"metas": [],
-			"gastos": [],
-			"entradas": []
-		},
-		{
-			"nome": "testeX",
-			"email": "teste@teste",
-			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"id": 13,
 			"idContaConjunta": null,
 			"metas": [],
 			"gastos": [],
