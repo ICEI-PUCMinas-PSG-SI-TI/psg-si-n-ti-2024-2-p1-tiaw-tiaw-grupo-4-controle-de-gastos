@@ -21,9 +21,8 @@ window.addEventListener("load", async () => {
     try {
         const response = await fetch("http://localhost:3000/clientes/?id="+idUsuario, options);
         const usuarioJson = await response.json();
-        console.log(usuarioJson);
         if(usuarioJson != null) {
-            //exibirGrafico(usuarioJson);
+            exibirGrafico(usuarioJson);
         }
     }
     catch(err){
@@ -38,26 +37,17 @@ const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
                'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
 async function carregarGastosMensais(usuarioJson) {
-    try {
-        const ano = 2024;
-        const gastosPorMes = Array(12).fill(0); 
+    const ano = 2024;
+    const gastosPorMes = Array(12).fill(0); 
 
-        usuarioJson.
+    usuarioJson.gastos.forEach(gasto => {
+        const [anoData, mesData] = gasto.data.split("-").map(Number);
+        if (anoData === ano) {
+            gastosPorMes[mesData - 1] += gasto.valor; 
+        }
+    });
 
-        data.cliente.forEach(cliente => {
-            cliente.gastos.forEach(gasto => {
-                const [anoData, mesData] = gasto.data.split("-").map(Number);
-                if (anoData === ano) {
-                    gastosPorMes[mesData - 1] += gasto.valor; 
-                }
-            });
-        });
-
-        return gastosPorMes;
-    } catch (error) {
-        console.error("Erro ao carregar o JSON:", error);
-        return Array(12).fill(0); 
-    }
+    return gastosPorMes;
 }
 
 async function exibirGrafico(usuarioJson) {

@@ -1,0 +1,18 @@
+{
+  "name": "cashbyme",
+  "version": "1.0.0",
+  "description": "sistema de controle de gastos",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node ./codigo/assets/js/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cashbyme": "file:"
+  }
+}

@@ -23,9 +23,17 @@
 					"data": "2024-01-01",
 					"valor": 105,
 					"recorrencia": [
-						"INDIVIDUAL",
-						"MENSAL",
-						"ANUAL"
+						"INDIVIDUAL"
+					]
+				},
+				{
+					"id": 2,
+					"titulo": "Teste",
+					"categoria": "Comida",
+					"data": "2024-02-02",
+					"valor": 1005,
+					"recorrencia": [
+						"INDIVIDUAL"
 					]
 				}
 			],
@@ -50,7 +58,8 @@
 						"MENSAL"
 					]
 				}
-			]
+			],
+			"saldo": 1
 		},
 		{
 			"id": 2,
@@ -72,7 +81,7 @@
 					"id": 1,
 					"titulo": "Pedido no Burger King",
 					"categoria": "Comida",
-					"data": "2024-05-01",
+					"data": "2024-01-01",
 					"valor": 105,
 					"recorrencia": [
 						"INDIVIDUAL",
@@ -105,10 +114,21 @@
 			]
 		},
 		{
-			"nome": "teste",
+			"nome": "testea",
 			"email": "teste@teste",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
 			"id": 0,
+			"idContaConjunta": null,
+			"metas": [],
+			"gastos": [],
+			"entradas": []
+		},
+		{
+			"nome": "admin",
+			"email": "teste@admin",
+			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+			"id": 3,
+			"admin": true,
 			"idContaConjunta": null,
 			"metas": [],
 			"gastos": [],

@@ -1,0 +1,114 @@
+html,
+body {
+  background-color: white;
+}
+
+#formLogin{
+  margin-top: 9%;
+}
+
+h1 {
+  color: #3f225f;
+}
+
+.telaCadastro {
+  display: flex;
+  height: 100%;
+}
+
+.fundoCashByMe h1 {
+  font-size: 8vw;
+  color: #d7c9e4;
+  margin-top: 35%;
+}
+
+.fundoCashByMe {
+  height: 927px;
+  background-color: #f5eaff;
+  width: 50%;
+  margin-left: 0px;
+  margin-right: auto;
+  text-align: center;
+}
+
+.mainCadastro {
+  margin-top: 10%;
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+input, input[type="text"] {
+  background-color: #d9d9d9;
+  padding: 15px;
+  border: none;
+  font-size: 18px;
+  border-radius: 50px;
+  width: 50%;
+  margin: 1%;
+  text-indent: 40px;
+  box-sizing: unset;
+}
+
+.btnConfirmar {
+  margin-top: 2%;
+  background-color: #3f225f;
+  color: white;
+  border: none;
+  font-size: 30px;
+  height: 50px;
+  width: 53%;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#inputUsuario {
+  background-image: url(../img/iconeUsuarioDefault.png);
+  background-size: 33px;
+  background-position: 13px 10px;
+  background-repeat: no-repeat;
+}
+#inputEmail {
+  background-image: url(../img/iconeEmail.png);
+  background-size: 33px;
+  background-position: 13px 10px;
+  background-repeat: no-repeat;
+}
+#inputSenha {
+  background-image: url(../img/iconeSenha.png);
+  background-size: 30px;
+  background-position: 15px 10px;
+  background-repeat: no-repeat;
+}
+#inputSenhaConfirmada {
+  background-image: url(../img/iconeSenha.png);
+  background-size: 30px;
+  background-position: 15px 10px;
+  background-repeat: no-repeat;
+}
+
+a {
+  color: #551A8B;
+  text-decoration: none;
+}
+
+@media (max-width: 1250px) {
+  .mainCadastro {
+    width: 100%;
+  }
+  .fundoCashByMe {
+    display: none;
+  }
+}
+
+@media (max-height: 848px) {
+  .fundoCashByMe {
+    height: 820px;
+  }
+}
+
+@media (max-height: 700px) {
+  .fundoCashByMe {
+    height: 694px;
+  }
+}
