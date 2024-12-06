@@ -111,7 +111,16 @@
 			"id": 0,
 			"idContaConjunta": null,
 			"metas": [],
-			"gastos": [],
+			"gastos": [
+				{
+					"id": "5caf01b0-69b0-4561-8c93-7fa822a507ea",
+					"titulo": "decimo terceiro",
+					"categoria": "salario",
+					"valor": "2000",
+					"data": "2024-12-01",
+					"recorrencia": "Individual"
+				}
+			],
 			"entradas": []
 		}
 	]
