@@ -53,6 +53,7 @@ async function atualizarGastos(gastos, idUsuario) {
         })
     }
     try{
+        const response = await fetch("http://localhost:3000/clientes/", options);
         alert("Gasto inserido com sucesso");
     }
     catch(err){

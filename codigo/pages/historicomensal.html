@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Gastos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styleHistorico.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/img/cashbyme.jpg" alt="Logo" width="100%">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="fa-sharp fa-solid fa-signal"></i></span>                         
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-calculator"></i></span>         
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-money-bill"></i></span>                        
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <h1>Histórico de Gastos</h1>
+            <div class="chart">
+                <canvas id="gastosChart"></canvas>  
+            </div>
+            <div class="buttons">
+                <button id="historico-btn">Histórico</button>
+                <button id="gastos-mensais-btn"><a href="./gastosMensais.html">Gastos Mensais</a></button>
+            </div>
+        </main>
+    </div>
+    <script src="../assets/js/telaHistorico.js"></script>
+</body>
+</html>

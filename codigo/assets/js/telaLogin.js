@@ -23,8 +23,14 @@ async function tentarLogar(){
             usuarioCorrente.id = vetorClientes[i].id;
             usuarioCorrente.email = vetorClientes[i].email;
             usuarioCorrente.nome = vetorClientes[i].nome;
+            if(vetorClientes[i].admin !== null){
+                usuarioCorrente.admin = vetorClientes[i].admin;
+            }
             sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
-            location.replace("gastosMensais.html");
+            if(vetorClientes[i].admin == true){
+                location.replace("./pages/telaAdmin.html");
+            }
+            else location.replace("./pages/gastosMensais.html");
         }
     }
     if(userValido == false) {

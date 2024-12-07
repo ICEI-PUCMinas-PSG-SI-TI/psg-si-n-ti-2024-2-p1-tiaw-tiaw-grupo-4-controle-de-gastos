@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/styleCarteira.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../assets/js/telaGrafico.js" defer></script>
+    <script src="../assets/js/carteira.js"></script>
     <title>Gastos Mensais</title>
 </head>
 
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="item-menu">
-                <a href="metas.html" aria-label="Meta">
+                <a href="#" aria-label="Meta">
                     <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
                 </a>
             </li>
@@ -34,25 +34,18 @@
                     <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
                 </a>
             </li>
-            <li class="item-menu"">
-                <a href="regsalario.html" aria-label="Registro">
-                    <span class="icon"><i class="fa-solid fa-wallet"></i></span>
-                </a>
-            </li>
         </ul>
-        
     </nav>
 
     <main>
-        <h1 class="principal">Histórico de Gastos</h1>
+      
+        <h1 class="principal">Carteira Virtual</h1>
 
-        <div class="grafico">
-            <div class="graficotam">
-                <canvas class="grafico-canvas" id="myChart"></canvas>
-            </div>
-            <div class="botoesGastos">
-                <button class="btn-gastos" aria-label="Ver Histórico de Gastos">Histórico</button>
-                <button class="btn-gastos" aria-label="Ver Gastos Mensais">Gastos Mensais</button>
+        <div class="wallet">
+          <div class="balance">Saldo: <span id="balance"></span> BRL</div>
+          <input type="number" id="amount" placeholder="Digite o valor" />
+          <div class="buttons">
+              <button id="btnDefinir" class="add">Redefinir</button>
             </div>
         </div>
     </main>

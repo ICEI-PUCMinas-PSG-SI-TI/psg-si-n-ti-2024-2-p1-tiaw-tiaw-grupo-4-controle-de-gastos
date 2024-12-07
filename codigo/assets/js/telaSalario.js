@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
     else {
        alert("Sessão invalida, faça o login");
-       location.replace("login.html");
+       location.replace("../index.html");
     }
     let usuarioJson = await receberUsuario(idUsuario);
     let botaoSalvar = document.getElementById("botaoSalvar");
@@ -36,7 +36,7 @@ async function receberUsuario(idUsuario) {
     catch(err){
         console.log(err);
         alert("Sessão invalida, faça o login");
-        location.replace("login.html");
+        location.replace("../index.html");
     }
 }
 
@@ -48,10 +48,11 @@ async function atualizarSalario(salario, idUsuario) {
         },
         body: JSON.stringify({
             id: idUsuario,
-            salario: salario
+            entradas: salario
         })
     }
     try{
+        const response = await fetch("http://localhost:3000/clientes/", options);
         alert("Valor salvo com sucesso");
     }
     catch(err){
@@ -72,7 +73,7 @@ async function salvarSalario(usuarioJson) {
     else {
         let id = generateUUID();
         const novoSalario = { id, titulo, valor, data, recorrencia}; 
-        let salario = usuarioJson.salario;
+        let salario = usuarioJson.entradas;
         if(salario === undefined){
             salario = [];
         }

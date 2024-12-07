@@ -21,7 +21,7 @@ const server = http.createServer(async (req, res) => {
         });
         req.on('end', async () => {
             let idAutomatico =  gerarId(vetorClientes); 
-            const novoCliente = {...JSON.parse(body), id:idAutomatico, idContaConjunta:null , metas: [], gastos: [], entradas: []};
+            const novoCliente = {...JSON.parse(body), id:idAutomatico, contaConjunta:{} , metas: [], gastos: [], entradas: []};
             if(verificaClienteEmail(novoCliente.email,vetorClientes) == null) {
                 vetorClientes.cliente.push(novoCliente);
                 atualizarArquivo(vetorClientes);
@@ -77,6 +77,15 @@ const server = http.createServer(async (req, res) => {
                         }
                         if(clienteAlterado.entradas != null) {
                             vetorClientes.cliente[indiceCliente].entradas = clienteAlterado.entradas;
+                        }
+                        if(clienteAlterado.investimentos != null) {
+                            vetorClientes.cliente[indiceCliente].investimentos = clienteAlterado.investimentos;
+                        }
+                        if(clienteAlterado.saldo != null) {
+                            vetorClientes.cliente[indiceCliente].saldo = clienteAlterado.saldo;
+                        }
+                        if(clienteAlterado.contaConjunta != null) {
+                            vetorClientes.cliente[indiceCliente].contaConjunta = clienteAlterado.contaConjunta;
                         }
                         atualizarArquivo(vetorClientes);
                         res.end(JSON.stringify(clienteAlterado));
