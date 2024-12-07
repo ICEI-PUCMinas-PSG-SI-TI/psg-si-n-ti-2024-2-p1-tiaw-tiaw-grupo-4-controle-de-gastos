@@ -29,9 +29,19 @@
 				{
 					"id": 2,
 					"titulo": "Teste",
-					"categoria": "Comida",
+					"categoria": "Misc",
 					"data": "2024-02-02",
 					"valor": 1005,
+					"recorrencia": [
+						"INDIVIDUAL"
+					]
+				},
+				{
+					"id": 3,
+					"titulo": "Teste",
+					"categoria": "Misc",
+					"data": "2024-12-12",
+					"valor": 15,
 					"recorrencia": [
 						"INDIVIDUAL"
 					]
@@ -44,7 +54,6 @@
 					"data": "2024-01-01",
 					"valor": 1500,
 					"recorrencia": [
-						"INDIVIDUAL",
 						"MENSAL"
 					]
 				},
@@ -54,12 +63,11 @@
 					"data": "2024-01-01",
 					"valor": 200,
 					"recorrencia": [
-						"INDIVIDUAL",
-						"MENSAL"
+						"INDIVIDUAL"
 					]
 				}
 			],
-			"saldo": 1
+			"saldo": 10
 		},
 		{
 			"id": 2,
