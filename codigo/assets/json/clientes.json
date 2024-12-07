@@ -2,7 +2,7 @@
 	"cliente": [
 		{
 			"id": 1,
-			"idContaConjunta": 2,
+			"contaConjunta": {},
 			"nome": "André Gomes",
 			"email": "andregomes28@gmail.com",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
@@ -71,7 +71,7 @@
 		},
 		{
 			"id": 2,
-			"idContaConjunta": 1,
+			"contaConjunta": {},
 			"nome": "Silvia Andrade",
 			"email": "silviaandrade25@gmail.com",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
@@ -126,9 +126,18 @@
 			"email": "teste@teste",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
 			"id": 0,
-			"idContaConjunta": null,
+			"contaConjunta": {},
 			"metas": [],
-			"gastos": [],
+			"gastos": [
+				{
+					"id": "5caf01b0-69b0-4561-8c93-7fa822a507ea",
+					"titulo": "decimo terceiro",
+					"categoria": "salario",
+					"valor": "2000",
+					"data": "2024-12-01",
+					"recorrencia": "Individual"
+				}
+			],
 			"entradas": []
 		},
 		{
@@ -137,7 +146,7 @@
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
 			"id": 3,
 			"admin": true,
-			"idContaConjunta": null,
+			"contaConjunta": {},
 			"metas": [],
 			"gastos": [],
 			"entradas": []

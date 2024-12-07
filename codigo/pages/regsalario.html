@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" ../assets/css/styleSalario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../assets/js/telaSalario.js" defer></script>
+    <title>Registro de Salário</title>
+</head>
+<body>
+    <nav class="menu-lateral">
+        <ul>
+            <li class="item-menu">
+                <a href="addusuario.html" aria-label="Usuário">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                </a>
+            </li>
+            
+            <li class="item-menu">
+                <a href="gastosMensais.html" aria-label="Dashboard">
+                    <span class="icon"><i class="fa-sharp fa-solid fa-signal"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="metas.html" aria-label="Meta">
+                    <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="#" aria-label="Calculadora">
+                    <span class="icon"><i class="fa-solid fa-calculator"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="incluirGastos.html" aria-label="Relatório Financeiro">
+                    <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
+                </a>
+            </li>
+            <li class="item-menu"">
+                <a href="regsalario.html" aria-label="Registro">
+                    <span class="icon"><i class="fa-solid fa-wallet"></i></span>
+                </a>
+            </li>
+        </ul>
+        
+    </nav>
+    
+    <h1 class="principal">Registro de Salário</h1>
+
+    <div class="telaIncluir">
+        <input class="entradaSalario" placeholder="Título" required>
+        <input class="entradaSalario" placeholder="Valor" required>
+        <br>
+        <h2 class="tituloData">Data da Entrada</h2>
+        <input class="entradaSalarioData" type="date" name="tempo" required>
+        <br>
+        <section class="radio-section">
+            <div class="radio-list">
+                <h1>Qual a recorrência do salário?</h1>
+                <div class="radio-item">
+                    <input name="radio" id="radio1" type="radio">
+                    <label for="radio1">Individual</label>
+                </div>
+                <div class="radio-item">
+                    <input name="radio" id="radio2" type="radio">
+                    <label for="radio2">Mensal</label>
+                </div>
+                <div class="radio-item">
+                    <input name="radio" id="radio3" type="radio">
+                    <label for="radio3">Semestral</label>
+                </div>
+                <div class="radio-item">
+                    <input name="radio" id="radio4" type="radio">
+                    <label for="radio4">Anual</label>
+                </div>
+            </div>
+        </section>
+        <button id="botaoSalvar">Salvar</button>
+    </div>
+    
+    <!-- Adiciona a lista de entrada aqui -->
+    <ul class="lista-salario"></ul>
+    
+</body>
+</html>

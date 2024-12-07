@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href=" ../assets/css/styleAddusuario.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../assets/js/telaGrafico.js" defer></script>
-    <title>Gastos Mensais</title>
+    <script src="../assets/js/telaUsuario.js" defer></script>
+    <title>Conta Conjunta</title>
 </head>
-
 <body>
     <nav class="menu-lateral">
         <ul>
             <li class="item-menu">
-                <a href="#" aria-label="Dashboard">
+                <a href="addusuario.html" aria-label="Usuário">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                </a>
+            </li>
+            
+            <li class="item-menu">
+                <a href="gastosMensais.html" aria-label="Dashboard">
                     <span class="icon"><i class="fa-sharp fa-solid fa-signal"></i></span>
                 </a>
             </li>
@@ -30,7 +33,7 @@
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#" aria-label="Relatório Financeiro">
+                <a href="incluirGastos.html" aria-label="Relatório Financeiro">
                     <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
                 </a>
             </li>
@@ -42,19 +45,15 @@
         </ul>
         
     </nav>
+    
+    <h1 class="principal">Usuário conjunto</h1>
 
-    <main>
-        <h1 class="principal">Histórico de Gastos</h1>
-
-        <div class="grafico">
-            <div class="graficotam">
-                <canvas class="grafico-canvas" id="myChart"></canvas>
-            </div>
-            <div class="botoesGastos">
-                <button class="btn-gastos" aria-label="Ver Histórico de Gastos">Histórico</button>
-                <button class="btn-gastos" aria-label="Ver Gastos Mensais">Gastos Mensais</button>
-            </div>
-        </div>
-    </main>
+    <div class="telaIncluir">
+        <input class="infousuario" placeholder="Email" required>
+        <input class="infousuario" placeholder="Relacao" required>
+        
+        <button id="botaoAdicionar">Adicionar</button>
+        <button id="botaoRemover">Remover</button>
+    </div>    
 </body>
 </html>
