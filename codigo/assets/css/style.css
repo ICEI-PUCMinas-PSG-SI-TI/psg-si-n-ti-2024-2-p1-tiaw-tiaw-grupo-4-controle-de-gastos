@@ -100,6 +100,10 @@ h3.texto2 {
         text-align: center;
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
+    .btn-gastos a {
+      color: white;
+      text-decoration: none ;
+  }
     
     .btn-gastos:hover {
         background-color: #583d70;

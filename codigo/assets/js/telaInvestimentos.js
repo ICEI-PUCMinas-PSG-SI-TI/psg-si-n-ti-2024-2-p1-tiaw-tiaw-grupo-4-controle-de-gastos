@@ -12,7 +12,7 @@ window.addEventListener("load", async () => {
     }
     else {
         alert("Sessão invalida, faça o login");
-        location.replace("login.html");
+        location.replace("../index.html");
     }
     
     let btnAdicionar = document.getElementById("btnAdicionar");
@@ -114,7 +114,7 @@ async function preencherTabela(idUsuario) {
     catch(err){
         console.log(err);
         alert("Sessão invalida, faça o login");
-        location.replace("login.html");
+        location.replace("../index.html");
     }
     
     

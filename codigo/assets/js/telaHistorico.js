@@ -30,7 +30,7 @@ if(idUsuario !== undefined){
                 'Moradia': 'rgba(255, 159, 64, 0.8)',
                 'Tecnologia': 'rgba(201, 203, 207, 0.8)',
                 'Doações': 'rgba(99, 255, 132, 0.8)',
-                'Outros' : 'rgba(255, 255, 255, 0.8)'
+                'Outros' : 'rgba(0, 0, 0, 0.8)'
             };
             // Preenchendo os dados a partir do JSON
             clienteJson.gastos.forEach(gasto => {

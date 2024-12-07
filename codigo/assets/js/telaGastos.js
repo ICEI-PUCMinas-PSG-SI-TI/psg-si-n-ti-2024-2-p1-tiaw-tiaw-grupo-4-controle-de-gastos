@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
     else {
        alert("Sessão invalida, faça o login");
-       location.replace("login.html");
+       location.replace("../index.html");
     }
     let usuarioJson = await receberUsuario(idUsuario);
     let botaoSalvar = document.getElementById("botaoSalvar");
@@ -37,7 +37,7 @@ async function receberUsuario(idUsuario) {
     catch(err){
         console.log(err);
         alert("Sessão invalida, faça o login");
-        location.replace("login.html");
+        location.replace("../index.html");
     }
 }
 

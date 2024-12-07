@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Gastos</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/styleAdmin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../assets/js/telaGrafico.js" defer></script>
-    <title>Gastos Mensais</title>
 </head>
-
 <body>
     <nav class="menu-lateral">
         <ul>
@@ -71,19 +68,19 @@
             </li>
         </ul>
     </nav>
-
-    <main>
-        <h1 class="principal">Histórico de Gastos</h1>
-
-        <div class="grafico">
-            <div class="graficotam">
-                <canvas class="grafico-canvas" id="myChart"></canvas>
-            </div>
-            <div class="botoesGastos">
-                <button class="btn-gastos" aria-label="Ver Histórico de Gastos"><a href="./historicomensal.html">Histórico</a></button>
-                <button class="btn-gastos" aria-label="Ver Gastos Mensais">Gastos Mensais</button>
-            </div>
+    <div id="fundoUsuario">
+        <div id="telaPadrao">
+            <h1>Minhas Entradas</h1>
+            <table id="tabelaUsuarios">
+                <tr>
+                    <th>Titulo</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>Recorrencia</th>
+                </tr>
+            </table>
         </div>
-    </main>
+    </div>
+    <script src="../assets/js/telaListaEntradas.js"></script>
 </body>
 </html>
