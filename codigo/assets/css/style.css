@@ -33,7 +33,7 @@ ul{
 ul li.item-menu a{ 
     color: black;
     text-decoration: none;
-    padding: 60px 0px 0px 0px;
+    padding: 30px 0px 0px 0px;
     display: flex;
 }
 ul li.item-menu a .txt-link{
@@ -62,99 +62,58 @@ h3.texto2 {
     padding: 10%;
     width: 100%;
     left: 17%;
-    }
-    .grafico {
-        width: 60%;
-        margin: 5% auto;
-    }
-    
-    .graficotam {
-        background-color: #ffffff;
-        padding: 1.5%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        box-sizing: border-box;
-    }
-    
-    .grafico-canvas {
-        width: 100%;
-        height: auto;
-    }
-    
-    .botoesGastos {
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    
-    .btn-gastos {
-        padding: 10px 20px;
-        background-color: #7908e2;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .btn-gastos a {
-      color: white;
-      text-decoration: none ;
-  }
-    
-    .btn-gastos:hover {
-        background-color: #583d70;
-        transform: scale(1.05);
-    }
-    
-    .btn-gastos:active {
-        background-color: #583d70;
-        transform: scale(0.95);
-    }
-    
-    @media (max-width: 768px) {
-    nav.menu-lateral {
-        width: 100%;
-        height: 60px;
-        padding: 0;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        top: auto;
-        display: flex;
-        justify-content: center;
-    }
+}
+.grafico {
+    width: 60%;
+    margin: 5% auto;
+}
 
-    ul {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        height: 100%;
-        padding: 0;
-        margin: 0px;
-    }
+.graficotam {
+    background-color: #ffffff;
+    padding: 1.5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
 
-    ul li.item-menu a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 20px;
-    }
+.grafico-canvas {
+    width: 100%;
+    height: auto;
+}
 
-    ul li.item-menu a .txt-link {
-        margin-left: 0;
-        font-size: 12px;
-    }
+.botoesGastos {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-    ul li.item-menu a .icon>i {
-        font-size: 20px;
-        padding: 0;
-    }
+.btn-gastos {
+    padding: 10px 20px;
+    background-color: #7908e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-gastos a {
+  color: white;
+  text-decoration: none ;
 }
     
+.btn-gastos:hover {
+    background-color: #583d70;
+    transform: scale(1.05);
+}
+
+.btn-gastos:active {
+    background-color: #583d70;
+    transform: scale(0.95);
+}  
 
 nav.menu-lateral {
   width: 45px;
@@ -177,7 +136,7 @@ ul {
 ul li.item-menu a {
   color: black;
   text-decoration: none;
-  padding: 60px 0px 0px 0px;
+  padding: 30px 0px 0px 0px;
   display: flex;
 }
 
@@ -502,4 +461,25 @@ ul
 	opacity: 1;
 	visibility: visible;
 	transform: scale(1);
+}
+
+.removerMeta {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.removerMeta:hover{
+  transform: scale(1.05);
+}
+
+.removerMeta:active{
+  transform: scale(0.95);
 }

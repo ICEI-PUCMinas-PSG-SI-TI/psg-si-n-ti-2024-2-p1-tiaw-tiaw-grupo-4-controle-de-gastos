@@ -118,7 +118,7 @@ if(idUsuario !== undefined){
                         y: {
                             stacked: true,
                             beginAtZero: true,
-                            max: 1400,
+                            max: 2000,
                             grid: {
                                 display: true, 
                                 color: 'rgba(0, 0, 0, 0.1)' 

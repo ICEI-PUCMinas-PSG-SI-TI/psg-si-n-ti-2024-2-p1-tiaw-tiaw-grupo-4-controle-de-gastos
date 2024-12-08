@@ -5,86 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico de Gastos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/styleHistorico.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <div class="logo">
-                <img src="../assets/img/cashbyme.jpg" alt="Logo" width="100%">
-            </div>
-            <nav class="menu-lateral">
-                <ul>
-                    <li class="item-menu">
-                        <a href="gastosMensais.html" aria-label="Dashboard">
-                            <span class="icon"><i class="fa-sharp fa-solid fa-signal"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="metas.html" aria-label="Meta">
-                            <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="regsalario.html" aria-label="Calculadora">
-                            <span class="icon"><i class="fa-solid fa-calculator"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="incluirGastos.html" aria-label="Relatório Financeiro">
-                            <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="investimentos.html" aria-label="investimentos">
-                            <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="CarteiraVirtual.html" aria-label="Carteira">
-                            <span class="icon"><i class="fa-solid fa-wallet"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="addusuario.html" aria-label="Conta conjunta">
-                            <span class="icon"><i class="fa-solid fa-people-arrows"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="alerta.html" aria-label="Alerta">
-                            <span class="icon"><i class="fa-solid fa-circle-exclamation"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="telaListaEntradas.html" aria-label="Lista de entradas">
-                            <span class="icon"><i class="fa-solid fa-rectangle-list"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="telaListaGastos.html" aria-label="Lista de gastos">
-                            <span class="icon"><i class="fa-regular fa-rectangle-list"></i></span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="informacoesUsuario.html" aria-label="Informacoes">
-                            <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
+    <nav class="menu-lateral">
+        <ul>
+            <li class="item-menu">
+                <a href="gastosMensais.html" aria-label="Dashboard">
+                    <span class="icon"><i class="fa-sharp fa-solid fa-signal"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="metas.html" aria-label="Meta">
+                    <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="regsalario.html" aria-label="Calculadora">
+                    <span class="icon"><i class="fa-solid fa-calculator"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="incluirGastos.html" aria-label="Relatório Financeiro">
+                    <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="investimentos.html" aria-label="investimentos">
+                    <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="CarteiraVirtual.html" aria-label="Carteira">
+                    <span class="icon"><i class="fa-solid fa-wallet"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="addusuario.html" aria-label="Conta conjunta">
+                    <span class="icon"><i class="fa-solid fa-people-arrows"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="CorteGastos.html" aria-label="Corte de Gastos">
+                    <span class="icon"><i class="fa-solid fa-scissors"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="alerta.html" aria-label="Alerta">
+                    <span class="icon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="telaListaEntradas.html" aria-label="Lista de entradas">
+                    <span class="icon"><i class="fa-solid fa-rectangle-list"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="telaListaGastos.html" aria-label="Lista de gastos">
+                    <span class="icon"><i class="fa-regular fa-rectangle-list"></i></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="informacoesUsuario.html" aria-label="Informacoes">
+                    <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
         
-        <main class="main-content">
-            <h1>Histórico de Gastos</h1>
-            <div class="chart">
-                <canvas id="gastosChart"></canvas>  
-            </div>
-            <div class="buttons">
-                <button id="historico-btn">Histórico</button>
-                <button id="gastos-mensais-btn"><a href="./gastosMensais.html">Gastos Mensais</a></button>
-            </div>
-        </main>
+    <h1>Histórico de Gastos</h1>
+    <div class="chart">
+        <canvas id="gastosChart"></canvas>  
+    </div>
+    <div class="buttons">
+        <button id="historico-btn">Histórico</button>
+        <button id="gastos-mensais-btn"><a href="./gastosMensais.html">Gastos Mensais</a></button>
     </div>
     <script src="../assets/js/telaHistorico.js"></script>
 </body>

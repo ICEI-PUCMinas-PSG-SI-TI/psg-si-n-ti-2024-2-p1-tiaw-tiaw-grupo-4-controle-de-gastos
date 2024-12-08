@@ -58,6 +58,10 @@ window.addEventListener("load", async () => {
         btn.addEventListener('click', () => {
             trocarPagina(btn);
         })
+    });
+    let btnDeslogar = document.getElementById("btnDeslogar");
+    btnDeslogar.addEventListener("click", () => {
+        deslogar();
     })
 })
 
@@ -314,4 +318,9 @@ async function receberInformacoes(idUsuario) {
         console.log(err);
         alert("Houve um erro");
     }
+}
+
+function deslogar() {
+    sessionStorage.setItem('usuarioCorrente', null);
+    location.replace("../index.html");
 }

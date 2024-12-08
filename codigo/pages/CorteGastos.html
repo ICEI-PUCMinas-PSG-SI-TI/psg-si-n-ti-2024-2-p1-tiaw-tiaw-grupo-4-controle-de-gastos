@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css"/>
-    <link rel="stylesheet" href="../assets/css/styleInvestimentos.css"/>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="../assets/css/styleGastosMensais.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <title>Meus investimentos</title>
+    <script src="../assets/js/sugestoes.js" defer></script>
+    <title>Cash BY Me</title>
 </head>
+<title>Sugestões de Corte de Gastos</title>
+</head>
+
 <body>
     <nav class="menu-lateral">
         <ul>
@@ -78,31 +78,12 @@
             </li>
         </ul>
     </nav>
-    <div id="fundoUsuario">
-        <div id="telaPadrao">
-            <div>
-                <h1>Meus investimentos</h1>
-                <button id="btnAdicionar">Adicionar</button>
-            </div>
-            <table id="tabelaUsuarios">
-                
-            </table>
-        </div>
-        <div id="modalUsuario">
-            <div class="secaoInformacao">
-                <h1>Simbolo</h1>
-                <select id="listaInvestimentos">
-                    <option>Aguarde...</option>
-                    
-                </select>
-                <br><input id="qtd" placeholder="Quantidade" value="">
-            </div>
-            <div id="secaoBotoes">
-                <button id="btnConfirmar">Confirmar</button>
-                <button id="btnVoltar">Voltar</button>
-            </div>
-        </div>
+
+    <div>
+        <h1 class="principal">Sugestões de Corte de Gastos</h1>
+        <button id="btnSugerir" class="criar-meta">Calcular Sugestões</button>
+        <div class="cards-container" id="cards-sugestoes"></div>
     </div>
-    <script src="../assets/js/telaInvestimentos.js"></script>
 </body>
+
 </html>

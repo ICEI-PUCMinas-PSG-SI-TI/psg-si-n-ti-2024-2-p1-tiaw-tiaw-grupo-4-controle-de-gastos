@@ -33,32 +33,32 @@ window.addEventListener("load", async () => {
                 <td><button class="btnDeletar">Deletar</button></td>
             </tr>`;
         }
+        if((cliente.gastos !== undefined && cliente.gastos.length >= 9)){
+            for(let i = 0; i < Math.ceil(cliente.gastos.length / 9); i++){
+                tabelaUsuarios.innerHTML +=
+                `
+                <button id="${i}" class="btnPagina">${i+1}</button>
+                `
+            }
+        }
+        let btnsDeletar = document.querySelectorAll(".btnDeletar");
+        btnsDeletar.forEach(btn => {
+            btn.addEventListener('click', () => {
+                deletarGasto(idUsuario, cliente.gastos, btn);
+            });
+        });
+        let btnsPagina = document.querySelectorAll(".btnPagina");
+        btnsPagina.forEach(btn => {
+            btn.addEventListener('click', () => {
+                trocarPagina(btn);
+            })
+        })
     }
     catch(err){
         console.log(err);
         alert("Problema de comunicação com o servidor");
         location.replace("../index.html");
     }
-    if(cliente.gastos.length >= 9){
-        for(let i = 0; i < Math.ceil(cliente.gastos.length / 9); i++){
-            tabelaUsuarios.innerHTML +=
-            `
-            <button id="${i}" class="btnPagina">${i+1}</button>
-            `
-        }
-    }
-    let btnsDeletar = document.querySelectorAll(".btnDeletar");
-    btnsDeletar.forEach(btn => {
-        btn.addEventListener('click', () => {
-            deletarGasto(idUsuario, cliente.gastos, btn);
-        });
-    });
-    let btnsPagina = document.querySelectorAll(".btnPagina");
-    btnsPagina.forEach(btn => {
-        btn.addEventListener('click', () => {
-            trocarPagina(btn);
-        })
-    })
 })
 
 async function trocarPagina(btn) {

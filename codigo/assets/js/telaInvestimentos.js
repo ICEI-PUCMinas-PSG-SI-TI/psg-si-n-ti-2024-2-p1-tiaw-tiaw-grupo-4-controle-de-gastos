@@ -72,7 +72,7 @@ async function preencherTabela(idUsuario) {
         
         if(usuarioJson.investimentos != null && usuarioJson.investimentos.length > 0){
             for(let i = 0; i < usuarioJson.investimentos.length && i < 6; i++) {
-                const responseBrapi = await fetch(`https://brapi.dev/api/quote/${usuarioJson.investimentos[i].simbolo}?token=`, options); // COLOQUE UM TOKEN VALIDO PARA BRAPI
+                const responseBrapi = await fetch(`https://brapi.dev/api/quote/${usuarioJson.investimentos[i].simbolo}?token=t9qRZf2NE8H9a4mudhXuty`, options); // COLOQUE UM TOKEN VALIDO PARA BRAPI
                 const results = await responseBrapi.json();
                 conteudoHTML += `
                 <tr id="${results.results[0].symbol}">
@@ -95,18 +95,6 @@ async function preencherTabela(idUsuario) {
         
         else {
             conteudoHTML = "Não há investimentos registrados ainda."
-            usuarioJson.investimentos = [];
-            const optionsPut = {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    id: idUsuario,
-                    investimentos: usuarioJson.investimentos
-                })
-            }
-            const responsePut = await fetch("http://localhost:3000/clientes/", optionsPut);
         }
 
         tabela.innerHTML = conteudoHTML;

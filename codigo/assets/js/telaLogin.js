@@ -1,5 +1,11 @@
 let botaoLogin = document.getElementById("botaoLogin");
 botaoLogin.addEventListener("click", tentarLogar);
+let inputSenha = document.getElementById("inputSenha");
+inputSenha.addEventListener("keypress", (event)=>{
+    if(event.key === "Enter") {
+        tentarLogar;
+    }
+})
 
 let usuarioCorrente = {};
 
