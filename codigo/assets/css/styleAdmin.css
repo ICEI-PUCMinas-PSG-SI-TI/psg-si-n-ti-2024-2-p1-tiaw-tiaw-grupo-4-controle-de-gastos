@@ -73,6 +73,17 @@ tbody:nth-child(even) {
     font-weight: bold;
     text-align: center;
 }
+#btnDeslogar {
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
 #modalUsuario{
     display: none;
     width: 70%;
