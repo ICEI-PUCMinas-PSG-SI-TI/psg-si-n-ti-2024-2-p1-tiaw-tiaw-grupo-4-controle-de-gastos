@@ -74,6 +74,7 @@ async function salvarGasto(usuarioJson) {
     }
     else {
         let id = generateUUID();
+        valor = parseFloat(valor);
         const novoGasto = { id, titulo, categoria, valor, data, recorrencia}; 
         let gastos = usuarioJson.gastos;
         if(gastos === undefined){

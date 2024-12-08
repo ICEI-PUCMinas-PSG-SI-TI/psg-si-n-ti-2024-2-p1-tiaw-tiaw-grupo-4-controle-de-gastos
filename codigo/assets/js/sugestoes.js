@@ -42,7 +42,7 @@ function gerarSugestoes(gastos) {
         gastos.forEach(gasto => {
             if (gasto.valor > 100 || gasto.categoria == 'lazer' && gasto.recorrencia == 'individual') { 
                 title.textContent = `Corte sugerido: ${gasto.titulo}`;
-                valor.textContent = `Valor gasto: R$${gasto.valor.toFixed(2)}`;
+                valor.textContent = `Valor gasto: R$ ${gasto.valor}`;
                 categoria.textContent = `Categoria: ${gasto.categoria}`;
                 sugestao.textContent = 'Sugestão: Reduzir frequência ou optar por alternativas mais econômicas.';
 
