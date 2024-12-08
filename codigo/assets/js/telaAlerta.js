@@ -38,12 +38,19 @@ async function atualizarDados(idUsuario) {
       usuarioJson.gastos.forEach(gasto => {
           const [anoData, mesData] = gasto.data.split("-").map(Number);
           if (anoData === ano && mesData === dataAtual.getMonth()+1) {
-            gastosDoMes += gasto.valor; 
+            gastosDoMes += parseFloat(gasto.valor); 
           }
       });
-
-      saldo.textContent = `Seu saldo atual é de: R$ ${usuarioJson.saldo.toFixed(2)}`;
-      gastos.textContent = `Você tem gastos futuros previstos de R$ ${gastosDoMes.toFixed(2)}`;
+      let saldoExibido = 0;
+      let gastoExibido = 0;
+      if(usuarioJson.saldo !== undefined){
+        saldoExibido = usuarioJson.saldo;
+      }
+      if(gastosDoMes !== undefined){
+        gastoExibido = gastosDoMes;
+      }
+      saldo.textContent = `Seu saldo atual é de: R$ ${saldoExibido.toFixed(2)}`;
+      gastos.textContent = `Você tem gastos futuros previstos de R$ ${gastoExibido.toFixed(2)}`;
     
       if (usuarioJson.saldo < gastosDoMes) {
         mensagem.textContent = "Por favor, revise seus gastos ou adicione mais fundos para evitar saldo negativo.";

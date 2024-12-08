@@ -21,7 +21,7 @@ const server = http.createServer(async (req, res) => {
         });
         req.on('end', async () => {
             let idAutomatico =  gerarId(vetorClientes); 
-            const novoCliente = {...JSON.parse(body), id:idAutomatico, contaConjunta:{} , metas: [], gastos: [], entradas: []};
+            const novoCliente = {...JSON.parse(body), id:idAutomatico, contaConjunta:{} , metas: [], gastos: [], entradas: [], investimentos: [], saldo: 0};
             if(verificaClienteEmail(novoCliente.email,vetorClientes) == null) {
                 vetorClientes.cliente.push(novoCliente);
                 atualizarArquivo(vetorClientes);

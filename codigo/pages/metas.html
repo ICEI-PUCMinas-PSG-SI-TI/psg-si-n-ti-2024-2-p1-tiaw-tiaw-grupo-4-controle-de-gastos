@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../assets/js/script.js" defer></script>
+    <script src="../assets/js/telaMetas.js" defer></script>
     <title>Gastos Mensais</title>
 </head>
 
@@ -39,7 +39,7 @@
                   <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
               </a>
           </li>
-        <li class="item-menu">
+          <li class="item-menu">
               <a href="CarteiraVirtual.html" aria-label="Carteira">
                   <span class="icon"><i class="fa-solid fa-wallet"></i></span>
               </a>
@@ -47,6 +47,11 @@
           <li class="item-menu">
               <a href="addusuario.html" aria-label="Conta conjunta">
                   <span class="icon"><i class="fa-solid fa-people-arrows"></i></span>
+              </a>
+          </li>
+          <li class="item-menu">
+              <a href="CorteGastos.html" aria-label="Corte de Gastos">
+                  <span class="icon"><i class="fa-solid fa-scissors"></i></span>
               </a>
           </li>
           <li class="item-menu">
@@ -74,20 +79,10 @@
 
     <div class="container">
       <h1 class="principal">Metas</h1>
-      <button class="criar-meta" onclick="openModal()">Criar Meta</button>
-      <div class="cards-container">
-        <div class="card meta-card">
-          <h2>Meta 1</h2>
-          <p>Descrição da meta 1.</p>
-        </div>
-        <div class="card meta-card">
-          <h2>Meta 2</h2>
-          <p>Descrição da meta 2.</p>
-        </div>
-        <div class="card meta-card">
-          <h2>Meta 3</h2>
-          <p>Descrição da meta 3.</p>
-        </div>
+      <button id="btnCriarMeta" class="criar-meta">Criar Meta</button>
+      <div id="divMetas" class="cards-container">
+        <!-- criar dinamicamente -->
+        <h1>Você ainda não possui metas!</h1>
       </div>
     </div>
 
@@ -117,22 +112,5 @@
       </div>
     </div>
 
-    <script>
-      function openModal() {
-        document.getElementById("modal").style.display = "block"
-      }
-
-      window.onclick = function (event) {
-        if (event.target === document.getElementById("modal")) {
-          document.getElementById("modal").style.display = "none"
-        }
-      }
-
-      document.getElementById("metaForm").onsubmit = function (event) {
-        event.preventDefault()
-        console.log("Meta adicionada")
-        document.getElementById("modal").style.display = "none"
-      }
-    </script>
   </body>
 </html>

@@ -6,15 +6,7 @@
 			"nome": "André Gomes",
 			"email": "andregomes28@gmail.com",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"metas": [
-				{
-					"id": 1,
-					"titulo": "Guardar dinheiro",
-					"descricao": "Guardar dinheiro pra viajar no final do ano.",
-					"valor": 1200,
-					"tempo": "2024-01-01"
-				}
-			],
+			"metas": [],
 			"gastos": [
 				{
 					"id": 1,
@@ -66,15 +58,7 @@
 			"nome": "Silvia Andrade",
 			"email": "silviaandrade25@gmail.com",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-			"metas": [
-				{
-					"id": 1,
-					"titulo": "Guardar dinheiro",
-					"descricao": "Guardar dinheiro pra viajar no final do ano.",
-					"valor": 1200,
-					"tempo": "2024-01-01"
-				}
-			],
+			"metas": [],
 			"gastos": [
 				{
 					"id": 1,
@@ -113,7 +97,7 @@
 			]
 		},
 		{
-			"nome": "testea",
+			"nome": "teste",
 			"email": "teste@teste",
 			"pw_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
 			"id": 0,
@@ -121,15 +105,29 @@
 			"metas": [],
 			"gastos": [
 				{
-					"id": "5caf01b0-69b0-4561-8c93-7fa822a507ea",
-					"titulo": "decimo terceiro",
-					"categoria": "salario",
-					"valor": "2000",
-					"data": "2024-12-01",
-					"recorrencia": "Individual"
+					"id": 1,
+					"titulo": "Pedido no Burger King",
+					"categoria": "Comida",
+					"data": "2024-01-01",
+					"valor": 105,
+					"recorrencia": [
+						"INDIVIDUAL"
+					]
+				},
+				{
+					"id": 3,
+					"titulo": "Teste",
+					"categoria": "Misc",
+					"data": "2024-12-12",
+					"valor": 15,
+					"recorrencia": [
+						"INDIVIDUAL"
+					]
 				}
 			],
-			"entradas": []
+			"entradas": [],
+			"investimentos": [],
+			"saldo": 15
 		},
 		{
 			"nome": "admin",
